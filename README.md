@@ -1,4 +1,4 @@
-Kiran-Tiriveedhi(VisioGraphic RESUME)
+VisioGraphic RESUME
 ================
 
 ABSTRACT:
