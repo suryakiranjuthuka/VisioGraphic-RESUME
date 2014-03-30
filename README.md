@@ -19,10 +19,10 @@ DATA:
 When we visit the website, at first the website will be like a template with pre populated sample fields. The user can then fill his fields on his own. In our project the data is taken from the user as an input & the program we design takes that input and represents that data in a graphical way.
 
 GRAPHIC TYPE:
-1. Timeline GraphEducation/ Work/ Achievements/ Goal.
-2. Donut ChartUser’s SkillSet.
-3. Vertical Pointer MappingPersonal Identity
-4. Horizontal Pointer Mapping“ I want to work where” & “My Skill Characteristics”
+* Timeline GraphEducation/ Work/ Achievements/ Goal.
+* Donut ChartUser’s SkillSet.
+* Vertical Pointer MappingPersonal Identity
+* Horizontal Pointer Mapping“ I want to work where” & “My Skill Characteristics”
 
 INTERACTIONS:
 1. The user gets a left sidebar, when he hover on it he will get all of his details like Contact Information, Professional Area, Status, Salary, Position, Education Level, Job Type & Mobility
