@@ -25,10 +25,10 @@ GRAPHIC TYPE:
 4. Horizontal Pointer Mapping“ I want to work where” & “My Skill Characteristics”
 
 INTERACTIONS:
-* The user gets a left sidebar, when he hover on it he will get all of his details like Contact Information, Professional Area, Status, Salary, Position, Education Level, Job Type & Mobility
-* The timeline is the heart of this project, the timeline gives the user interactivity like setting his years of study by dragging the pointer & even getting the information related to it by hovering the timeline.
-* The skill set area gives the user to modify its fields & manually drag the pointer to set the donut chart.
-* The personal Identity section which uses “Vertical Pointer Mapping” gives the user to keep the users desired position in place of a pointer & the same thing goes for “Horizontal Pointer Mapping”
+1. The user gets a left sidebar, when he hover on it he will get all of his details like Contact Information, Professional Area, Status, Salary, Position, Education Level, Job Type & Mobility
+2. The timeline is the heart of this project, the timeline gives the user interactivity like setting his years of study by dragging the pointer & even getting the information related to it by hovering the timeline.
+3. The skill set area gives the user to modify its fields & manually drag the pointer to set the donut chart.
+4. The personal Identity section which uses “Vertical Pointer Mapping” gives the user to keep the users desired position in place of a pointer & the same thing goes for “Horizontal Pointer Mapping”
 
 
 -Surya Kiran Juthuka (ID: 01452383)
