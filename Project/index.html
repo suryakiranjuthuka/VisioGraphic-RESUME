@@ -12,6 +12,7 @@
 				shape-rendering: crispEdges;
 			}
 			
+            
 			.axis text {
 				font-family: sans-serif;
 				font-size: 11px;
@@ -21,6 +22,7 @@
     </head>
     <body>
 
+            <p>Click Me Surya</p>
         <script type="text/javascript">
            
             //SVG WIDTH & HEIGHT
@@ -28,7 +30,7 @@
             var h = 500;
             var padding = 30;
             
-			var dataset = [ [4,2012], [3,2009.5] , [2,2009], [1,2008.5], [2,2006], [4,2007]
+			var dataset = [ [3,2012.5], [2,2010] , [1,2009.5], [4,2008], [1,2006.5,2006,2007], [3,2007.5]
                           ];
 
             
@@ -85,13 +87,58 @@
                                 
             
             
+//            svg.selectAll("#tl line")
+//                    .data(dataset)
+//                    .enter()
+//                    .append("line")
+//                    .attr("x1",Xscale(0.05))
+//                    .attr("y1",function(d){ return Yscale(d[2]); })
+//                    .attr("x2",function(d){ return Xscale(d[0]); })
+//                    .attr("y2",function(d){ return Yscale(d[2]); })
+//                    .attr("stroke","black");
+//            
+//            
+//            svg.selectAll("#tcl line")
+//                    .data(dataset)
+//                    .enter()
+//                    .append("line")
+//                    .attr("x1",Xscale(0.8))
+//                    .attr("y1",function(d){ return Yscale(d[2]); })
+//                    .attr("x2",function(d){ return Xscale(d[0]); })
+//                    .attr("y2",function(d){ return Yscale(d[1]); })
+//                    .attr("stroke","red");
+            
+            
+            svg.selectAll("#bl line")
+                    .data(dataset)
+                    .enter()
+                    .append("line")
+                    .attr("x1",Xscale(0.05))
+                    .attr("y1",function(d){ return Yscale(d[2]); })
+                    .attr("x2",function(d){ return Xscale(d[0]); })
+                    .attr("y2",function(d){ return Yscale(d[2]); })
+                    .attr("stroke","black");
+            
+            
+            svg.selectAll("#bcl line")
+                    .data(dataset)
+                    .enter()
+                    .append("line")
+                    .attr("x1",Xscale(0.8))
+                    .attr("y1",function(d){ return Yscale(d[2]); })
+                    .attr("x2",function(d){ return Xscale(d[0]); })
+                    .attr("y2",function(d){ return Yscale(d[1]); })
+                    .attr("stroke","red");
+            
+            
+            
             svg.append("g")
-                .attr("class","xaxis axis")
+                .attr("class","xaxis x axis")
                 .attr("transform","translate(10," + (h-padding) + ")")
 				.call(Xaxis);
             
             svg.append("g")
-                .attr("class",".yaxis axis")
+                .attr("class","yaxis y axis")
                 .attr("transform", "translate(" + (padding+10) + ",0)")
 				.call(Yaxis);
         
@@ -101,6 +148,62 @@
 //             return "translate(" + this.getBBox().h*-2 + "," + this.getBBox().h + ")";
 //         });
             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            //On click, update with new data			
+			d3.select("p")
+				.on("click", function() {
+
+					var dataset = [ [2,2012], [1,2009.5] , [4,2009], [4,2008.5], [3,2006], [2,2007]
+                          ];
+                    
+                    
+					//Update scale domains
+					Xscale.domain([0, d3.max(dataset, function(d) { return d[0]; })]);
+					Yscale.domain([0, d3.max(dataset, function(d) { return d[1]; })]);
+
+					//Update all circles
+					svg.selectAll("circle")
+					   .data(dataset)
+					   .transition()
+					   .duration(1000)
+					   .each("start", function() {
+						   d3.select(this)
+						     .attr("fill", "magenta")
+						     .attr("r", 7);
+					   })
+					   .attr("cx", function(d) {
+					   		return Xscale(d[0]);
+					   })
+					   .attr("cy", function(d) {
+					   		return Yscale(d[1]);
+					   })
+					   .transition()
+					   .duration(1000)
+					   .attr("fill", "black")
+					   .attr("r", 2);
+
+					//Update X axis
+					svg.select(".x.axis")
+				    	.transition()
+				    	.duration(1000)
+						.call(Xaxis);
+					
+					//Update Y axis
+					svg.select(".y.axis")
+				    	.transition()
+				    	.duration(1000)
+						.call(Yaxis);
+
+				});
 			  
         </script>
         
