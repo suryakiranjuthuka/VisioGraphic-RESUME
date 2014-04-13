@@ -30,7 +30,7 @@
             var h = 500;
             var padding = 30;
             
-			var dataset = [ [3,2012.5], [2,2010] , [1,2009.5], [4,2008], [1,2006.5,2006,2007], [3,2007.5]
+			var dataset = [ [3,2012.5,2011,2014], [2,2010,2009,2011] , [1,2009.5,2009,2010], [4,2008,2006,2010], [1,2006.5,2006,2007], [3,2007.5,2006,2009]
                           ];
 
             
@@ -43,7 +43,7 @@
             
             //Yscale
             var Yscale = d3.scale.linear()
-                            .domain([d3.min(dataset,function(d){ return d[1]; })-1, d3.max(dataset,function(d){ return d[1]; })])
+                            .domain([d3.min(dataset,function(d){ return d[2]; })-1, d3.max(dataset,function(d){ return (d[3]+1); })])
                             .range([h-padding,padding]);
             
             
@@ -63,6 +63,59 @@
                         .append("svg")
                         .attr("width",w)
                         .attr("height",h);
+            
+            
+            
+            
+            
+            
+            svg.selectAll("#tl line") //Top Line
+                    .data(dataset)
+                    .enter()
+                    .append("line")
+                    .attr("x1",Xscale(0.05))
+                    .attr("y1",function(d){ return Yscale(d[3]); })
+                    .attr("x2",function(d){ return Xscale(d[0]-(d[0]/8)); })
+                    .attr("y2",function(d){ return Yscale(d[3]); })
+                    .attr("stroke","teal");
+            
+            
+            svg.selectAll("#tcl line") //Top Cross Line
+                    .data(dataset)
+                    .enter()
+                    .append("line")
+                    .attr("x1",function(d){ return Xscale(d[0]-(d[0]/8)); })
+                    .attr("y1",function(d){ return Yscale(d[3]); })
+                    .attr("x2",function(d){ return Xscale(d[0]); })
+                    .attr("y2",function(d){ return Yscale(d[1]); })
+                    .attr("stroke","teal");
+            
+            
+            svg.selectAll("#bl line") //Bottom Line
+                    .data(dataset)
+                    .enter()
+                    .append("line")
+                    .attr("x1",Xscale(0.05))
+                    .attr("y1",function(d){ return Yscale(d[2]); })
+                    .attr("x2",function(d){ return Xscale(d[0]-(d[0]/8)); })
+                    .attr("y2",function(d){ return Yscale(d[2]); })
+                    .attr("stroke","teal");
+            
+            
+            svg.selectAll("#bcl line") //Bottom Cross Line
+                    .data(dataset)
+                    .enter()
+                    .append("line")
+                    .attr("x1",function(d){ return Xscale(d[0]-(d[0]/8)); })
+                    .attr("y1",function(d){ return Yscale(d[2]); })
+                    .attr("x2",function(d){ return Xscale(d[0]); })
+                    .attr("y2",function(d){ return Yscale(d[1]); })
+                    .attr("stroke","teal");
+            
+            
+            
+            
+            
             
             var circles = svg.selectAll("circle")
                             .data(dataset)
@@ -87,48 +140,7 @@
                                 
             
             
-//            svg.selectAll("#tl line")
-//                    .data(dataset)
-//                    .enter()
-//                    .append("line")
-//                    .attr("x1",Xscale(0.05))
-//                    .attr("y1",function(d){ return Yscale(d[2]); })
-//                    .attr("x2",function(d){ return Xscale(d[0]); })
-//                    .attr("y2",function(d){ return Yscale(d[2]); })
-//                    .attr("stroke","black");
-//            
-//            
-//            svg.selectAll("#tcl line")
-//                    .data(dataset)
-//                    .enter()
-//                    .append("line")
-//                    .attr("x1",Xscale(0.8))
-//                    .attr("y1",function(d){ return Yscale(d[2]); })
-//                    .attr("x2",function(d){ return Xscale(d[0]); })
-//                    .attr("y2",function(d){ return Yscale(d[1]); })
-//                    .attr("stroke","red");
             
-            
-            svg.selectAll("#bl line")
-                    .data(dataset)
-                    .enter()
-                    .append("line")
-                    .attr("x1",Xscale(0.05))
-                    .attr("y1",function(d){ return Yscale(d[2]); })
-                    .attr("x2",function(d){ return Xscale(d[0]); })
-                    .attr("y2",function(d){ return Yscale(d[2]); })
-                    .attr("stroke","black");
-            
-            
-            svg.selectAll("#bcl line")
-                    .data(dataset)
-                    .enter()
-                    .append("line")
-                    .attr("x1",Xscale(0.8))
-                    .attr("y1",function(d){ return Yscale(d[2]); })
-                    .attr("x2",function(d){ return Xscale(d[0]); })
-                    .attr("y2",function(d){ return Yscale(d[1]); })
-                    .attr("stroke","red");
             
             
             
