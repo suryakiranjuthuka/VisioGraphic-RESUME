@@ -4,71 +4,69 @@
         <meta charset="utf-8">
         <title>VisioGraphic Resume</title>
         <script type="text/javascript" src="d3/d3.js"></script>
-        <style type="text/css">
-			.axis path,
-			.axis line {
-				fill: none;
-                stroke:red;
-				shape-rendering: crispEdges;
-			}
-			
+			<style type="text/css">
+				.axis path,
+				.axis line {
+					fill: none;
+					stroke:red;
+					shape-rendering: crispEdges;
+				}
+				.axis text {
+					font-family: sans-serif;
+					font-size: 11px;
+					fill: green;
+				}
+			</style>
+</head>
+	
+	
+<body>
+	<p id="work" style="display:block; margin-left:152px; cursor:pointer;">Work  |</p>
+    <p id="education" style="cursor:pointer;  margin-top:-35px; margin-left:202px;">Education</p>
+	
+	<script type="text/javascript">
+		//SVG WIDTH & HEIGHT
+		var w = 700;
+		var h = 500;
+		var padding = 30;
             
-			.axis text {
-				font-family: sans-serif;
-				font-size: 11px;
-                fill: green;
-			}
-        </style>
-    </head>
-    <body>
-        
-            <p id="work" style="display:block; margin-left:152px; cursor:pointer;">Work  |</p>
-            <p id="education" style="cursor:pointer;  margin-top:-35px; margin-left:202px;">Education</p>
+		var dataset = [ [3,2012.5,2011,2014], [2,2010,2009,2011] , [1,2009.5,2009,2010], [4,2008,2006,2010], [1,2006.5,2006,2007], [3,2007.5,2006,2009], [], []
+					  ];
+            
+            
+//      var dataset = [ [5,1993.5,1991,1996], [2,1993,1992,1994] , [4,2001,1999,2003], [3,1996.5,1995,1998], [1,1994.5,1994,1995], [1,2001.5,2001,2002], [2,1998,1997,1999], [3,1994.5,1993,1996]
+//                    ];
+            
+		//Xscale
+		var Xscale = d3.scale.linear()
+						.domain([0, d3.max(dataset,function(d){ return d[0]; })])
+						.range([padding,w-padding*5]);
 
-        <script type="text/javascript">
-           
-            //SVG WIDTH & HEIGHT
-            var w = 700;
-            var h = 500;
-            var padding = 30;
-            
-			var dataset = [ [3,2012.5,2011,2014], [2,2010,2009,2011] , [1,2009.5,2009,2010], [4,2008,2006,2010], [1,2006.5,2006,2007], [3,2007.5,2006,2009], [], []
-                          ];
-            
-            
-//            var dataset = [ [5,1993.5,1991,1996], [2,1993,1992,1994] , [4,2001,1999,2003], [3,1996.5,1995,1998], [1,1994.5,1994,1995], [1,2001.5,2001,2002], [2,1998,1997,1999], [3,1994.5,1993,1996]
-//                          ];
-            
-            //Xscale
-            var Xscale = d3.scale.linear()
-                            .domain([0, d3.max(dataset,function(d){ return d[0]; })])
-                            .range([padding,w-padding*5]);
-            
-            
-            
-            //Yscale
-            var Yscale = d3.scale.linear()
-                            .domain([d3.min(dataset,function(d){ return d[2]; })-1, d3.max(dataset,function(d){ return (d[3]+1); })])
-                            .range([h-padding,padding]);
-            
-            
-            //Xaxis
-            var Xaxis = d3.svg.axis()
-                            .scale(Xscale)
-                            .orient("bottom")
-                            .ticks(4);
-        
-        
-            //Yaxis
-            var Yaxis = d3.svg.axis()
-                            .scale(Yscale)
-                            .orient("left");
-            
-            var svg = d3.select("body")
-                        .append("svg")
-                        .attr("width",w)
-                        .attr("height",h);
-            
+
+
+		//Yscale
+		var Yscale = d3.scale.linear()
+						.domain([d3.min(dataset,function(d){ return d[2]; })-1, d3.max(dataset,function(d){ return (d[3]+1); })])
+						.range([h-padding,padding]);
+
+
+		//Xaxis
+		var Xaxis = d3.svg.axis()
+						.scale(Xscale)
+						.orient("bottom")
+						.ticks(4);
+
+
+		//Yaxis
+		var Yaxis = d3.svg.axis()
+						.scale(Yscale)
+						.orient("left");
+
+		var svg = d3.select("body")
+					.append("svg")
+					.attr("width",w)
+					.attr("height",h);
+
             
             
             
@@ -203,6 +201,7 @@
 					   .data(dataset)
 					   .transition()
 					   .duration(1000)
+						//.ease("elastic")
 					   .each("start", function() {
 						   d3.select(this)
 						     //.attr("fill", "magenta")
@@ -215,6 +214,7 @@
                     
                     .transition()
 					   .duration(1000)
+						//.ease("leniar")
                     
                     
 //                        .attr("cx", function(d){ return Xscale(d[0]); })
@@ -249,12 +249,13 @@
                     .data(dataset)
                     .transition()
 					   .duration(1000)
+						//.ease("circle")
 					   .each("start", function() {
 						   d3.select(this)
 						     .attr("x1", padding+10)
-                           .attr("y1",function(d){ return Yscale(d[3]); }) //Add (d[3]+padding) and see the magic
+                           .attr("y1",function(d){ return Yscale(d[3]+padding); }) //Add (d[3]+padding) and see the magic
 						     .attr("x2", padding+10)
-                           .attr("y2",function(d){ return Yscale(d[3]); }) //Add (d[3]+padding) and see the magic
+                           .attr("y2",function(d){ return Yscale(d[3]+padding); }) //Add (d[3]+padding) and see the magic
 					   })
                     .attr("x1",Xscale(0.05))
                     .attr("y1",function(d){ return Yscale(d[3]); })
@@ -267,12 +268,13 @@
                     .data(dataset)
                     .transition()
 					   .duration(1000)
+						//.ease("circle")
 					   .each("start", function() {
 						   d3.select(this)
 						     .attr("x1", padding+10)
-                           .attr("y1",function(d){ return Yscale(d[3]); }) //Add (d[3]+padding) and see the magic
+                           .attr("y1",function(d){ return Yscale(d[3]+padding); }) //Add (d[3]+padding) and see the magic
 						     .attr("x2", padding+10)
-                           .attr("y2",function(d){ return Yscale(d[1]); }) //Add (d[3]+padding) and see the magic
+                           .attr("y2",function(d){ return Yscale(d[1]+padding); }) //Add (d[3]+padding) and see the magic
 					   })
                     .attr("x1",function(d){ return Xscale(d[0]-(d[0]/8)); })
                     .attr("y1",function(d){ return Yscale(d[3]); })
@@ -285,6 +287,7 @@
                     .data(dataset)
                     .transition()
 					   .duration(1000)
+			.ease("cubic-in-out")
 					   .each("start", function() {
 						   d3.select(this)
 						     .attr("x1", padding+10)
@@ -303,6 +306,7 @@
                     .data(dataset)
                     .transition()
 					   .duration(1000)
+			.ease("cubic-in-out")
 					   .each("start", function() {
 						   d3.select(this)
 						     .attr("x1", padding+10)
@@ -426,9 +430,9 @@
 					   .each("start", function() {
 						   d3.select(this)
 						     .attr("x1", padding+10)
-                           .attr("y1",function(d){ return Yscale(d[3]); }) //Add (d[3]+padding) and see the magic
+                           .attr("y1",function(d){ return Yscale(d[3]+padding); }) //Add (d[3]+padding) and see the magic
 						     .attr("x2", padding+10)
-                           .attr("y2",function(d){ return Yscale(d[3]); }) //Add (d[3]+padding) and see the magic
+                           .attr("y2",function(d){ return Yscale(d[3]+padding); }) //Add (d[3]+padding) and see the magic
 					   })
                     .attr("x1",Xscale(0.05))
                     .attr("y1",function(d){ return Yscale(d[3]); })
@@ -444,9 +448,9 @@
 					   .each("start", function() {
 						   d3.select(this)
 						     .attr("x1", padding+10)
-                           .attr("y1",function(d){ return Yscale(d[3]); }) //Add (d[3]+padding) and see the magic
+                           .attr("y1",function(d){ return Yscale(d[3]+padding); }) //Add (d[3]+padding) and see the magic
 						     .attr("x2", padding+10)
-                           .attr("y2",function(d){ return Yscale(d[1]); }) //Add (d[3]+padding) and see the magic
+                           .attr("y2",function(d){ return Yscale(d[1]+padding); }) //Add (d[3]+padding) and see the magic
 					   })
                     .attr("x1",function(d){ return Xscale(d[0]-(d[0]/8)); })
                     .attr("y1",function(d){ return Yscale(d[3]); })
