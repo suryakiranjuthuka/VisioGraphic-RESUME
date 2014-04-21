@@ -208,7 +208,8 @@
 								.attr("x2",function(d){ return Xscale(window.a-(window.a/8)); })
 								.attr("y2",function(d){ return Yscale(window.d); })
 								.attr("stroke","#E53542")
-								.attr("stroke-width",2);
+								.attr("stroke-width",2)
+								.style("pointer-events", "none");
 								
 								svg.append("line") //Top Cross Line Selector
 								.attr("class","remove")
@@ -217,7 +218,8 @@
 								.attr("x2",function(d){ return Xscale(window.a); })
 								.attr("y2",function(d){ return Yscale(window.b); })
 								.attr("stroke","#E53542")
-								.attr("stroke-width",2);
+								.attr("stroke-width",2)
+								.style("pointer-events", "none");
 								
 								svg.append("line") //Bottom Line Selector
 								.attr("class","remove")
@@ -226,7 +228,8 @@
 								.attr("x2",function(d){ return Xscale(window.a-(window.a/8)); })
 								.attr("y2",function(d){ return Yscale(window.c); })
 								.attr("stroke","#E53542")
-								.attr("stroke-width",2);
+								.attr("stroke-width",2)
+								.style("pointer-events", "none");
 								
 								svg.append("line") //Bottom Cross Line Selector
 								.attr("class","remove")
@@ -235,7 +238,8 @@
 								.attr("x2",function(d){ return Xscale(window.a); })
 								.attr("y2",function(d){ return Yscale(window.b); })
 								.attr("stroke","#E53542")
-								.attr("stroke-width",2);
+								.attr("stroke-width",2)
+								.style("pointer-events", "none");
 							
 								
 //								(d[3]); })
