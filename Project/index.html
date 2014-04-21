@@ -54,11 +54,24 @@
 		var c9 ="#F6CB51";
 		
             
-		var dataset = [ [3,2012.5,2011,2014], [2,2010,2009,2011] , [1,2009.5,2009,2010], [4,2008,2006,2010], [1,2006.5,2006,2007], [3,2007.5,2006,2009], [5,2012.5,2010,2015], []
-					  ];
+		
+		
+		
+		
+		var dataset = [
+			{ "id": 1, "years": 3, "midpoint": 2012.5, "start" : 2011, "end" : 2014 },
+			{ "id": 2, "years": 2, "midpoint": 2010, "start" : 2009, "end" : 2011 },
+			{ "id": 3, "years": 1, "midpoint": 2009.5, "start" : 2009, "end" : 2010 },
+			{ "id": 4, "years": 4, "midpoint": 2008, "start" : 2006, "end" : 2010 },
+			{ "id": 5, "years": 1, "midpoint": 2006.5, "start" : 2006, "end" : 2007 },
+			{ "id": 6, "years": 3, "midpoint": 2007.5, "start" : 2006, "end" : 2009 },
+			{ "id": 7, "years": 5, "midpoint": 2012.5, "start" : 2010, "end" : 2015 },
+			{}
+		];
             
 		
-	
+//	var dataset = [ [3,2012.5,2011,2014], [2,2010,2009,2011] , [1,2009.5,2009,2010], [4,2008,2006,2010], [1,2006.5,2006,2007], [3,2007.5,2006,2009], [5,2012.5,2010,2015], []
+//					  ];
 
             
 //      var dataset = [ [5,1993.5,1991,1996], [2,1993,1992,1994] , [4,2001,1999,2003], [3,1996.5,1995,1998], [1,1994.5,1994,1995], [1,2001.5,2001,2002], [2,1998,1997,1999], [3,1994.5,1993,1996]
@@ -66,14 +79,14 @@
             
 		//Xscale
 		var Xscale = d3.scale.linear()
-						.domain([0, d3.max(dataset,function(d){ return d[0]; })])
+						.domain([0, d3.max(dataset,function(d){ return d.years; })])
 						.range([padding,w-padding*5]);
 
 
 
 		//Yscale
 		var Yscale = d3.scale.linear()
-						.domain([d3.min(dataset,function(d){ return d[2]; })-1, d3.max(dataset,function(d){ return (d[3]+1); })])
+						.domain([d3.min(dataset,function(d){ return d.start; })-1, d3.max(dataset,function(d){ return (d.end+1); })])
 						.range([h-padding,padding]);
 
 
@@ -103,18 +116,11 @@
                     .data(dataset)
                     .enter()
                     .append("line")
-//					.on("mouseover",function(){
-//						d3.select(this)
-//						.transition()
-//						.duration(250)
-//						.attr("stroke","#E53542")
-//						.attr("stroke-width",2);
-//					})
                     .attr("id","tls") //Top Line Selector
                     .attr("x1",Xscale(0.05))
-                    .attr("y1",function(d){ return Yscale(d[3]); })
-                    .attr("x2",function(d){ return Xscale(d[0]-(d[0]/8)); })
-                    .attr("y2",function(d){ return Yscale(d[3]); })
+                    .attr("y1",function(d){ return Yscale(d.end); })
+                    .attr("x2",function(d){ return Xscale(d.years-(d.years/8)); })
+                    .attr("y2",function(d){ return Yscale(d.end); })
                     .attr("stroke","teal");
             
             svg.selectAll("#tcl line") //Top Cross Line
@@ -122,18 +128,11 @@
                     .enter()
                     .append("line")
                     .attr("id","tcls") //Top Cross Line Selector
-                    .attr("x1",function(d){ return Xscale(d[0]-(d[0]/8)); })
-                    .attr("y1",function(d){ return Yscale(d[3]); })
-                    .attr("x2",function(d){ return Xscale(d[0]); })
-                    .attr("y2",function(d){ return Yscale(d[1]); })
+                    .attr("x1",function(d){ return Xscale(d.years-(d.years/8)); })
+                    .attr("y1",function(d){ return Yscale(d.end); })
+                    .attr("x2",function(d){ return Xscale(d.years); })
+                    .attr("y2",function(d){ return Yscale(d.midpoint); })
                     .attr("stroke","teal");
-//					.attr("stroke",function(d){ 
-//                            if(d[0]==1){
-//                                return c1;} else if(d[0]==2){
-//                                return c2;} else if(d[0]==3){
-//                                return c3;} else if(d[0]==4){
-//                                return c4;} else{ return c5;  }
-//                            });
             
             
             svg.selectAll("#bl line") //Bottom Line
@@ -142,17 +141,10 @@
                     .append("line")
                     .attr("id","bls") //Bottom Line Selector
                     .attr("x1",Xscale(0.05))
-                    .attr("y1",function(d){ return Yscale(d[2]); })
-                    .attr("x2",function(d){ return Xscale(d[0]-(d[0]/8)); })
-                    .attr("y2",function(d){ return Yscale(d[2]); })
+                    .attr("y1",function(d){ return Yscale(d.start); })
+                    .attr("x2",function(d){ return Xscale(d.years-(d.years/8)); })
+                    .attr("y2",function(d){ return Yscale(d.start); })
                     .attr("stroke","teal");
-//					.attr("stroke",function(d){ 
-//                            if(d[0]==1){
-//                                return c1;} else if(d[0]==2){
-//                                return c2;} else if(d[0]==3){
-//                                return c3;} else if(d[0]==4){
-//                                return c4;} else{ return c5;  }
-//                            });
             
             
             svg.selectAll("#bcl line") //Bottom Cross Line
@@ -160,18 +152,11 @@
                     .enter()
                     .append("line")
                     .attr("id","bcls") //Bottom Cross Line Selector
-                    .attr("x1",function(d){ return Xscale(d[0]-(d[0]/8)); })
-                    .attr("y1",function(d){ return Yscale(d[2]); })
-                    .attr("x2",function(d){ return Xscale(d[0]); })
-                    .attr("y2",function(d){ return Yscale(d[1]); })
+                    .attr("x1",function(d){ return Xscale(d.years-(d.years/8)); })
+                    .attr("y1",function(d){ return Yscale(d.start); })
+                    .attr("x2",function(d){ return Xscale(d.years); })
+                    .attr("y2",function(d){ return Yscale(d.midpoint); })
                     .attr("stroke","teal");
-//					.attr("stroke",function(d){ 
-//                            if(d[0]==1){
-//                                return c1;} else if(d[0]==2){
-//                                return c2;} else if(d[0]==3){
-//                                return c3;} else if(d[0]==4){
-//                                return c4;} else{ return c5;  }
-//                            });
             
             
             
@@ -186,15 +171,15 @@
 								d3.select(this)
 								.attr("fill",function(d){ 
 									
-									window.a = d[0];
-									window.b = d[1];
-									window.c = d[2];
-									window.d = d[3];
+									window.a = d.years;
+									window.b = d.midpoint;
+									window.c = d.start;
+									window.d = d.end;
 									
-								if(d[0]==1){	
-                                return c1;} else if(d[0]==2){
-                                return c2;} else if(d[0]==3){
-                                return c3;} else if(d[0]==4){
+								if(d.years==1){	
+                                return c1;} else if(d.years==2){
+                                return c2;} else if(d.years==3){
+                                return c3;} else if(d.years==4){
                                 return c4;} else{ return c5;  }
                             	})
 								.attr("fill","#E53542")
@@ -240,29 +225,18 @@
 								.attr("stroke","#E53542")
 								.attr("stroke-width",2)
 								.style("pointer-events", "none");
-							
 								
-//								(d[3]); })
-//                    .attr("x2",function(d){ return Xscale(d[0]-(d[0]/8)); })
-//                    .attr("y2",function(d){ return Yscale(d[3]); })
-//								
-								
-//								topLine
-//								.attr("stroke",function(d){
-//									if(d[4]){
-//										return "#E53542";}
-//								})
-								//.attr("stroke-width",2);						
 							})
+								
 							.on("mouseout", function(){
 								d3.select(this)
 								.transition()
 								.duration(250)
 								.attr("fill",function(d){ 
-								if(d[0]==1){	
-                                return c1;} else if(d[0]==2){
-                                return c2;} else if(d[0]==3){
-                                return c3;} else if(d[0]==4){
+								if(d.years==1){	
+                                return c1;} else if(d.years==2){
+                                return c2;} else if(d.years==3){
+                                return c3;} else if(d.years==4){
                                 return c4;} else{ return c5;  }
                             	})
 								.attr("stroke","grey")
@@ -278,25 +252,16 @@
 								.attr("stroke",none)
 								.attr("stroke-width",0);
 							})
-                            .attr("cx", function(d){ return Xscale(d[0]); })
-                            .attr("cy", function(d){ return Yscale(d[1]); })
-                            .attr("r", function(d){ 
-                            if(d[0]==1){
-                                return (d[0]*10);} else if(d[0]==2){
-                                return (d[0]*10);} else if(d[0]==3){
-                                return (d[0]*10);} else if(d[0]==4){
-                                return (d[0]*10);} else if(d[0]==5){
-                                return (d[0]*10);} else if(d[0]==6){
-                                return (d[0]*10);} else if(d[0]==7){
-                                return (d[0]*10);} else if(d[0]==8){
-                                return (d[0]*10);} else if(d[0]==9){
-                                return (d[0]*10);}
+                            .attr("cx", function(d){ return Xscale(d.years); })
+                            .attr("cy", function(d){ return Yscale(d.midpoint); })
+                            .attr("r", function(d){
+								return (d.years*10);
                             })
                             .attr("fill",function(d){ 
-                            if(d[0]==1){
-                                return c1;} else if(d[0]==2){
-                                return c2;} else if(d[0]==3){
-                                return c3;} else if(d[0]==4){
+                            if(d.years==1){
+                                return c1;} else if(d.years==2){
+                                return c2;} else if(d.years==3){
+                                return c3;} else if(d.years==4){
                                 return c4;} else{ return c5;  }
                             })
                             .attr("stroke","grey")
