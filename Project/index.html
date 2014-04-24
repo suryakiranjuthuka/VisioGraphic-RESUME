@@ -5,6 +5,15 @@
         <title>VisioGraphic Resume</title>
         <script type="text/javascript" src="d3/d3.js"></script>
 			<style type="text/css">
+				
+				#svg1{
+					position: absolute;
+					top: 100px;
+					left: 600px;
+					
+					
+				}
+				
 				.axis path,
 				.axis line {
 					fill: none;
@@ -16,6 +25,33 @@
 					font-size: 11px;
 					fill: green;
 				}
+				
+				.circleDetails {
+				width: 20px;
+				height: 20px;
+				background-color: grey;
+				margin: 10.5px;
+				}
+				
+				
+				#circleDetailsModal{ /* Container */
+					float: right;
+					width: 200px;
+					margin-top: 170px;
+					margin-right: 30px;
+					
+				}
+				
+				#circleDetails{ /* Small Circles */
+					float: left;
+				}
+				
+				#circleDetailsPara{ /* Circle Name */
+					float: left;
+					line-height: 14px;
+					color: grey;
+				}
+				
 /*
 				circle:hover{
 					fill:turquoise;
@@ -35,6 +71,10 @@
 <body>
 	<p id="work" style="display:block; margin-left:152px; cursor:pointer;">Work  |</p>
     <p id="education" style="cursor:pointer;  margin-top:-35px; margin-left:202px;">Education</p>
+	
+	
+	<div id="circleDetailsModal"></div>
+	
 	
 	<script type="text/javascript">
 		//SVG WIDTH & HEIGHT
@@ -59,16 +99,49 @@
 		
 		
 		var dataset = [
-			{ "id": 1, "years": 3, "midpoint": 2012.5, "start" : 2011, "end" : 2014 },
-			{ "id": 2, "years": 2, "midpoint": 2010, "start" : 2009, "end" : 2011 },
-			{ "id": 3, "years": 1, "midpoint": 2009.5, "start" : 2009, "end" : 2010 },
-			{ "id": 4, "years": 4, "midpoint": 2008, "start" : 2006, "end" : 2010 },
-			{ "id": 5, "years": 1, "midpoint": 2006.5, "start" : 2006, "end" : 2007 },
-			{ "id": 6, "years": 3, "midpoint": 2007.5, "start" : 2006, "end" : 2009 },
-			{ "id": 7, "years": 5, "midpoint": 2012.5, "start" : 2010, "end" : 2015 },
-			{}
+			{ "id": 1, "years": 3, "midpoint": 2012.5, "start" : 2011, "end" : 2014, "name":"obulreddy" },
+			{ "id": 2, "years": 2, "midpoint": 2010, "start" : 2009, "end" : 2011, "name":"treveni" },
+			{ "id": 3, "years": 1, "midpoint": 2009.5, "start" : 2009, "end" : 2010, "name":"chaitanya" },
+			{ "id": 4, "years": 4, "midpoint": 2008, "start" : 2006, "end" : 2010, "name":"kgrcet" },
+			{ "id": 5, "years": 1, "midpoint": 2006.5, "start" : 2006, "end" : 2007, "name":"sri" },
+			{ "id": 6, "years": 3, "midpoint": 2007.5, "start" : 2006, "end" : 2009, "name":"kg" },
+			{ "id": 7, "years": 5, "midpoint": 2012.5, "start" : 2010, "end" : 2015, "name":"Umass" },
+			
 		];
             
+			
+			dataset.sort(function(a, b){
+			 return b.years-a.years
+			})
+			
+		
+		var circle_details = d3.select("#circleDetailsModal")
+			.append("div")
+			.attr("id","circleDetails")
+			.selectAll("div")
+			.data(dataset)
+			.enter()
+			.append("div")
+			.attr("class","circleDetails")
+			.style("background-color",function(d){ 
+				if(d.years==1){
+					return c1;} else if(d.years==2){
+					return c2;} else if(d.years==3){
+					return c3;} else if(d.years==4){
+					return c4;} else{ return c5;  }
+			});
+		
+		var circle_details_para = d3.select("#circleDetailsModal")
+			.append("div")
+			.attr("id","circleDetailsPara")
+			.selectAll("p")
+			.data(dataset)
+			.enter()
+			.append("p");
+			
+			
+			circle_details_para
+			.text(function(d){ return d.name; });
 		
 //	var dataset = [ [3,2012.5,2011,2014], [2,2010,2009,2011] , [1,2009.5,2009,2010], [4,2008,2006,2010], [1,2006.5,2006,2007], [3,2007.5,2006,2009], [5,2012.5,2010,2015], []
 //					  ];
@@ -105,7 +178,8 @@
 		var svg = d3.select("body")
 					.append("svg")
 					.attr("width",w)
-					.attr("height",h);
+					.attr("height",h)
+					.attr("id","svg1");
 
             
             
@@ -171,10 +245,12 @@
 								d3.select(this)
 								.attr("fill",function(d){ 
 									
+									window.x = d.id;
 									window.a = d.years;
 									window.b = d.midpoint;
 									window.c = d.start;
 									window.d = d.end;
+									window.e = d.name;
 									
 								if(d.years==1){	
                                 return c1;} else if(d.years==2){
@@ -185,6 +261,34 @@
 								.attr("fill","#E53542")
 								.attr("stroke","#E53542")
 								.attr("stroke-width",4);
+								
+								circle_details.style("background-color",function(d){
+									if(d.id==window.x){
+										return "#E53542";
+									}
+										if(d.years==1){
+										return c1;} else if(d.years==2){
+										return c2;} else if(d.years==3){
+										return c3;} else if(d.years==4){
+										return c4;} else{ return c5;  }
+								});
+//								.style("width",function(d){
+//									if(d.id==window.x){
+//										return 23 + "px";
+//									}
+//								})
+//								.style("height",function(d){
+//									if(d.id==window.x){
+//										return 23 + "px";
+//									}
+//								});
+								
+								circle_details_para
+								.style("color",function(d){
+									if(d.id==window.x){
+										return "#E53542";}
+								});
+								
 								
 								svg.append("line") //Top Line Selector
 								.attr("class","remove")
@@ -241,6 +345,24 @@
                             	})
 								.attr("stroke","grey")
 								.attr("stroke-width",1);
+								
+								circle_details
+								.transition()
+								.duration(250)
+								.style("background-color",function(d){
+									if(d.years==1){
+										return c1;} else if(d.years==2){
+										return c2;} else if(d.years==3){
+										return c3;} else if(d.years==4){
+										return c4;} else{ return c5;  }
+								});
+//								.style("width",function(d){ return 20 + "px";})
+//								.style("height",function(d){ return 20 + "px";});
+								
+								circle_details_para
+								.transition()
+								.duration(250)
+								.style("color",function(d) { return "grey"; });
 								
 								svg.selectAll("line.remove") //Top Line Selector
 //								.transition()
