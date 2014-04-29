@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>VisioGraphic Resume</title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/main.css"/>
+        <script type="text/javascript" src="d3/d3.min.js"></script>
+	</head>
+	
+<body>
+	<header id="header">
+		<h1>VisioGraphic Resume</h1>
+	</header>
+	
+	<section id="userInfo" >
+		<img src="images/default.png">
+		<h2>AYRUS NARIK</h2>
+	</section>
+	
+	<section id="mainGraph">
+		<p id="work" style=" cursor:pointer;">Work  |</p>
+		<p id="education" style="cursor:pointer;">Education</p>
+		<div id="circleDetailsModal"></div>
+		
+		<div id="educationDetails">
+			
+			<div id="hexagonContainer">
+				<div id="hexTop"></div>
+				<div id="hexMiddle"><p>%</p></div>
+				<div id="hexBottom"></div>
+			</div>
+			
+			<div id="triRecContainer">
+				<div id="leftRec"></div>
+				<div id="educationNameRect"><p></p></div>
+			</div>
+			
+			<div id="yearToYearContainer">
+				<div id="educationFirstYear"><p></p></div>
+				<div id="educationSecondYear"><p></p></div>
+			</div>
+			
+			<div id="areaContainer">
+				<div id="eCountry"><p></p></div>
+				<div id="eState"><p></p></div>
+				<div id="eCity"><p></p></div>
+			</div>
+			
+		</div>
+	</section> 
+       
+    <footer id="footer">
+		<h1>&copy;2014  Surya Kiran | Satish  -  VisoGraphic Resume</h1>
+	</footer> 
+</body>
+</html>
+
+<script type="text/javascript" src="javascripts/VisioGraphicResume.js"></script>
