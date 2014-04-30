@@ -176,16 +176,37 @@ circle{
 
 /* ***************************************START Education Details Styles******************************************* */
 #educationDetails{
-	width: 500px;
+	width: 506px;
 	height: 400px;
 	background-color: lightgrey;
 	position: absolute;
 	top: 205px;
-	left: 145px;
+	left: 139px;
+}
+
+.percentageTicks{
+	position: relative;
+	float: left;
+	width: 1px;
+	height: 10px;
+	margin-left: 45.5px;
+	background-color: grey;
+	top:-5px;
+}
+
+.percentageTicks p{
+	position: relative;
+	top:-20px;
+	right:7px;
 }
 
 #hexagonContainer{	/* Hexagon Container */
-	margin-left:50px;
+	height: 85px;
+	width: 40px;
+	position: relative;
+	top: 35px;
+	right: -445px;
+/*	background-color: green;*/
 }
 #hexTop{
 	width: 0;
@@ -196,13 +217,13 @@ circle{
 
 #hexMiddle{
 	width: 40px;
-	height: 30px;
+	height: 35px;
 	background-color: grey;
 }
 
 #hexMiddle p{
 	color:white; 
-	padding-top:3px; 
+	padding-top:5px; 
 	padding-left:12px; 
 	font-size:25px; 
 	font-weight:900;
@@ -216,24 +237,37 @@ circle{
 }
 
 #triRecContainer{	/* Triangle Container */
+	width: 406px;
+	height: 80px;
+	position:relative;
+	top: 70px;
+	right: -100px;
+/*	background-color: blue;*/
 }
 
-#leftRec{
-	width: 0;
-	height: 0;
+#leftTri{
 	border-top: 40px solid transparent;
-	border-right: 60px solid grey;
+	border-right: 50px solid grey;
 	border-bottom: 40px solid transparent;
+	float: left;
+	
 }
 
 #educationNameRect{
-	width:200px;
-	height:60px;
+	width:356px;
+	height:80px;
 	background-color:grey;
-	margin-left: 10px;
+	float: left;
 }
 
 #yearToYearContainer{	/* Year to Year Container */
+	
+	height: 70px;
+	width: 130px;
+	position: relative;
+	top: 140px;
+	left: 40px;
+/*	background-color: red;*/
 }
 
 #educationFirstYear{
@@ -241,36 +275,72 @@ circle{
 	width:30px; 
 	border-radius:50%; 
 	background-color:grey;
+	float: left;
+	margin-top: 10px;
+	
 }
 
 #educationSecondYear{
-	height:50px; 
-	width:50px; 
+	height:45px; 
+	width:45px; 
 	border-radius:50%; 
 	background-color:grey;
+	float: right;
+	position: relative;
+	right:0;
 }
+
+/*each right:30 next right:0 */
 
 #areaContainer{		/* Area Container */
+/*	background-color: orange;*/
+	width: 240px;
+	position: relative;
+	top: 40px;
+	left: 260px;
 }
 
-#eCountry{
+#eCity{
+	height:20px; 
+	width:20px; 
+	border-radius:50%; 
+	background-color:grey;
+	margin-top: 10px;
+	position: relative;
+	right: -170px;
+	top: 10px;
+/*	opacity: .5;*/
+}
+
+#eState{
 	height:30px; 
 	width:30px; 
 	border-radius:50%; 
 	background-color:grey;
+	position: relative;
+	right: -135px;
+	top: 10px;
+/*	opacity: .5;*/
 }
 
-#eState{
+#eCountry{
 	height:40px; 
 	width:40px; 
 	border-radius:50%; 
 	background-color:grey;
+	margin-bottom: 10px;
+	position: relative;
+	right: -90px;
+	top: 0px;
+/*	opacity: .5;*/
 }
 
-#eCity{
-	height:50px; 
-	width:50px; 
-	border-radius:50%; 
-	background-color:grey;
+#line1{
+	width: 200px;
+	height: 1px;
+	background-color: grey;
+	transform: rotate(45deg);
+	-ms-transform: rotate(45deg); /* IE 9 */
+	-webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
 }
 /* ***************************************END Education Details Styles******************************************* */

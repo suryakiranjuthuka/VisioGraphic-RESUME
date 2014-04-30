@@ -16,13 +16,13 @@
 		var c9 ="#F6CB51";
 		
         var dataset = [
-			{ "id": 1, "years": 3, "midpoint": 2012.5, "start" : 2011, "end" : 2014, "name":"P.Obul Reddy Public School" },
-			{ "id": 2, "years": 2, "midpoint": 2010, "start" : 2009, "end" : 2011, "name":"Treveni Talent School" },
-			{ "id": 3, "years": 1, "midpoint": 2009.5, "start" : 2009, "end" : 2010, "name":"Trinity Public School" },
-			{ "id": 4, "years": 4, "midpoint": 2008, "start" : 2006, "end" : 2010, "name":"Dav Public School" },
-			{ "id": 5, "years": 1, "midpoint": 2006.5, "start" : 2006, "end" : 2007, "name":"Sri Chaitanya Junior Kalasala" },
-			{ "id": 6, "years": 3, "midpoint": 2007.5, "start" : 2006, "end" : 2009, "name":"KG Reddy College Of Engineering & Technology" },
-			{ "id": 7, "years": 5, "midpoint": 2012.5, "start" : 2010, "end" : 2015, "name":"Univeristy Of Massachusetts Dartmouth" }
+			{ "id": 1, "years": 3, "midpoint": 2012.5, "start" : 2011, "end" : 2014, "name":"P.Obul Reddy Public School", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"40" },
+			{ "id": 2, "years": 2, "midpoint": 2010, "start" : 2009, "end" : 2011, "name":"Treveni Talent School", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"60" },
+			{ "id": 3, "years": 1, "midpoint": 2009.5, "start" : 2009, "end" : 2010, "name":"Trinity Public School", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"50" },
+			{ "id": 4, "years": 4, "midpoint": 2008, "start" : 2006, "end" : 2010, "name":"Dav Public School", "country":"INDIA", "state":"Tamil Nadu", "city":"Chennai", "percentage":"60" },
+			{ "id": 5, "years": 1, "midpoint": 2006.5, "start" : 2006, "end" : 2007, "name":"Sri Chaitanya Junior Kalasala", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"80" },
+			{ "id": 6, "years": 3, "midpoint": 2007.5, "start" : 2006, "end" : 2009, "name":"KG Reddy College Of Engineering & Technology", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"70" },
+			{ "id": 7, "years": 5, "midpoint": 2012.5, "start" : 2010, "end" : 2015, "name":"Univeristy Of Massachusetts Dartmouth", "country":"USA", "state":"Massachusetts", "city":"New Bedford", "percentage":"90" }
 			
 		];	dataset.sort(function(a, b){
 			 return b.years-a.years
@@ -299,22 +299,62 @@
 								window.start = d.start;
 								window.end = d.end;
 								window.name = d.name;
+								window.country = d.country;
+								window.state = d.state;
+								window.city = d.city;
+								window.percentage = d.percentage;
+								
+								d3.select("#hexagonContainer")
+								.transition()
+								.duration(500)
+								.delay(500)
+								.style("right",function(d){
+									if(window.percentage == 10) return -27+"px"; else
+									if(window.percentage == 20) return -73+"px"; else
+									if(window.percentage == 30) return -120+"px"; else
+									if(window.percentage == 40) return -166+"px"; else
+									if(window.percentage == 50) return -213+"px"; else
+									if(window.percentage == 60) return -259+"px"; else
+									if(window.percentage == 70) return -306+"px"; else
+									if(window.percentage == 80) return -352+"px"; else
+									if(window.percentage == 90) return -399+"px"; else
+									if(window.percentage == 100) return -445+"px";
+									else return -445+"px";
+									
+									
+								})
 								
 								d3.select("#educationNameRect")
 								.transition()
-								.duration(250)
+								.duration(500)
 								.each("start",function(){
 									d3.select(this)
-									.style("width",0+"px")
+									//.style("width",250+"px")
 									.select("p")
-									.text("")
-								})
-								.style("width",300+"px")
-								.select("p")
-								.attr("color","white")
-								.text(function(){
+									.style("display","none")
+									.style("font-size",20+"px")
+									.style("color","white")
+									.style("width",250+"px")
+									.style("position","relative")
+									.style("top",25+"px")
+									.style("right",28+"px")
+									.text(function(){
 									return window.name;
+									})
 								})
+								.style("width",356+"px")
+								
+								
+								d3.select("#educationNameRect")
+								.select("p")
+								.transition()
+								.duration(500)
+								.delay(250)
+								.style("display","block")
+								.style("top",25+"px")
+								.style("right",-50+"px")
+								.style("text-align","center")
+								
 								
 								d3.select("#educationFirstYear")
 								.select("p")
@@ -330,26 +370,107 @@
 									return window.end;
 								})
 								
+								d3.select("#educationSecondYear")
+								.transition()
+								.duration(500)
+								.each("start",function(){
+									d3.select(this)
+									.style("right",90+"px")
+								})
+								.style("right",0+"px")
+								
 								d3.select("#eCountry")
 								.select("p")
-								.attr("color","white")
+								.style("display","none")
 								.text(function(){
-									return window.end;
+									return window.country;
 								})
+								
+								d3.select("#eCountry")
+								.transition()
+								.duration(500)
+								.each("start",function(){
+									d3.select(this)
+									.style("right",-50+"px")
+									.style("top",-20+"px")
+									.select("p")
+									.style("display","none")
+									.style("right",130+"px")
+								})
+								.style("right",-90+"px")
+								.style("top",0+"px")
+								.select("p")
+								.style("display","none")
+								
+								d3.select("#eCountry")
+								.select("p")
+								.transition()
+								.duration(500)
+								.delay(250)
+								.style("display","block")
+								.style("right",70+"px")
 								
 								d3.select("#eState")
 								.select("p")
-								.attr("color","white")
+								.style("display","none")
 								.text(function(){
-									return window.end;
+									return window.state;
 								})
+								
+								d3.select("#eState")
+								.transition()
+								.duration(500)
+								.each("start",function(){
+									d3.select(this)
+									.style("right",-105+"px")
+									.style("top",-15+"px")
+									.select("p")
+									.style("display","none")
+									.style("right",155+"px")
+								})
+								.style("right",-135+"px")
+								.style("top",10+"px")
+								.select("p")
+								.style("display","none")
+								
+								d3.select("#eState")
+								.select("p")
+								.transition()
+								.duration(500)
+								.delay(250)
+								.style("display","block")
+								.style("right",95+"px")
 								
 								d3.select("#eCity")
 								.select("p")
-								.attr("color","white")
+								.style("display","none")
 								.text(function(){
-									return window.end;
+									return window.city;
 								})
+								
+								d3.select("#eCity")
+								.transition()
+								.duration(500)
+								.each("start",function(){
+									d3.select(this)
+									.style("right",-150+"px")
+									.style("top",-10+"px")
+									.select("p")
+									.style("display","none")
+									.style("right",165+"px")
+								})
+								.style("right",-170+"px")
+								.style("top",10+"px")
+								.select("p")
+								.style("display","none")
+								
+								d3.select("#eCity")
+								.select("p")
+								.transition()
+								.duration(500)
+								.delay(250)
+								.style("display","block")
+								.style("right",105+"px")
 							})
 			
 			
@@ -726,3 +847,26 @@
 
 				});
             
+
+
+
+//Education Details
+var education_details = [10,20,30,40,50,60,70,80,90,100]; 
+
+d3.select("body")
+	.select("#educationDetails")
+	.select("#percentageSlider")
+	.selectAll("div.test")
+	.data(education_details)
+	.enter()
+	.append("div")
+	.attr("class","percentageTicks")
+	.append("p")
+	.text(function(d){
+		return d;
+	})
+
+
+
+
+
