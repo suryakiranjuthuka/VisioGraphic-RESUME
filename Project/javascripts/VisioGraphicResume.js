@@ -329,7 +329,7 @@
 								.duration(500)
 								.each("start",function(){
 									d3.select(this)
-									//.style("width",250+"px")
+									.style("width",0+"px")
 									.select("p")
 									.style("display","none")
 									.style("font-size",20+"px")
