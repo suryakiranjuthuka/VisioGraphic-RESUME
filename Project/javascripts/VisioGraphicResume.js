@@ -16,13 +16,13 @@
 		var c9 ="#F6CB51";
 		
         var dataset = [
-			{ "id": 1, "years": 3, "midpoint": 2012.5, "start" : 2011, "end" : 2014, "name":"P.Obul Reddy Public School", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"40" },
-			{ "id": 2, "years": 2, "midpoint": 2010, "start" : 2009, "end" : 2011, "name":"Treveni Talent School", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"60" },
-			{ "id": 3, "years": 1, "midpoint": 2009.5, "start" : 2009, "end" : 2010, "name":"Trinity Public School", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"50" },
-			{ "id": 4, "years": 4, "midpoint": 2008, "start" : 2006, "end" : 2010, "name":"Dav Public School", "country":"INDIA", "state":"Tamil Nadu", "city":"Chennai", "percentage":"60" },
-			{ "id": 5, "years": 1, "midpoint": 2006.5, "start" : 2006, "end" : 2007, "name":"Sri Chaitanya Junior Kalasala", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"80" },
-			{ "id": 6, "years": 3, "midpoint": 2007.5, "start" : 2006, "end" : 2009, "name":"KG Reddy College Of Engineering & Technology", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"70" },
-			{ "id": 7, "years": 5, "midpoint": 2012.5, "start" : 2010, "end" : 2015, "name":"Univeristy Of Massachusetts Dartmouth", "country":"USA", "state":"Massachusetts", "city":"New Bedford", "percentage":"90" }
+			{ "id": 1, "years": 3, "midpoint": 2012.5, "start" : 2011, "end" : 2014, "name":"P.Obul Reddy Public School", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"40", "etype":"school" },
+			{ "id": 2, "years": 2, "midpoint": 2010, "start" : 2009, "end" : 2011, "name":"Treveni Talent School", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"60", "etype":"school" },
+			{ "id": 3, "years": 1, "midpoint": 2009.5, "start" : 2009, "end" : 2010, "name":"Trinity Public School", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"50", "etype":"school" },
+			{ "id": 4, "years": 4, "midpoint": 2008, "start" : 2006, "end" : 2010, "name":"Dav Public School", "country":"INDIA", "state":"Tamil Nadu", "city":"Chennai", "percentage":"60", "etype":"school" },
+			{ "id": 5, "years": 1, "midpoint": 2006.5, "start" : 2006, "end" : 2007, "name":"Sri Chaitanya Junior Kalasala", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"80", "etype":"college" },
+			{ "id": 6, "years": 3, "midpoint": 2007.5, "start" : 2006, "end" : 2009, "name":"KG Reddy College Of Engineering & Technology", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"70", "etype":"college" },
+			{ "id": 7, "years": 5, "midpoint": 2012.5, "start" : 2010, "end" : 2015, "name":"Univeristy Of Massachusetts Dartmouth", "country":"USA", "state":"Massachusetts", "city":"New Bedford", "percentage":"90", "etype":"university" }
 			
 		];	dataset.sort(function(a, b){
 			 return b.years-a.years
@@ -303,6 +303,7 @@
 								window.state = d.state;
 								window.city = d.city;
 								window.percentage = d.percentage;
+								window.etype = d.etype;
 								
 								d3.select("#hexagonContainer")
 								.transition()
@@ -320,16 +321,41 @@
 									if(window.percentage == 90) return -399+"px"; else
 									if(window.percentage == 100) return -445+"px";
 									else return -445+"px";
-									
-									
 								})
+								
+								d3.select("#triRecLine")
+								.style("transform",function(){
+									   	if(window.etype == "school") return "rotate("+28+"deg)"; else
+										if(window.etype == "college") return "rotate("+0+"deg)"; else
+										if(window.etype == "university") return "rotate("+152+"deg)";
+									   })
+								.style("-ms-transform",function(){
+									   	if(window.etype == "school") return "rotate("+28+"deg)"; else
+										if(window.etype == "college") return "rotate("+0+"deg)"; else
+										if(window.etype == "university") return "rotate("+152+"deg)";
+									   })
+								.style("-webkit-transform",function(){
+									   	if(window.etype == "school") return "rotate("+28+"deg)"; else
+										if(window.etype == "college") return "rotate("+0+"deg)"; else
+										if(window.etype == "university") return "rotate("+152+"deg)";
+									   })
+								.style("top",function(){
+										 if(window.etype == "school") return 20+"px"; else
+										 if(window.etype == "college") return 40+"px"; else
+										 if(window.etype == "university") return 59+"px";
+										})
+								.style("right",function(){
+										 if(window.etype == "school") return 80+"px"; else
+										 if(window.etype == "college") return 80+"px"; else
+										 if(window.etype == "university") return 80+"px";
+										})
 								
 								d3.select("#educationNameRect")
 								.transition()
 								.duration(500)
 								.each("start",function(){
 									d3.select(this)
-									.style("width",0+"px")
+									.style("width",300+"px")
 									.select("p")
 									.style("display","none")
 									.style("font-size",20+"px")
