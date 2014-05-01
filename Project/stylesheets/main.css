@@ -83,25 +83,67 @@ svg{
 	background-color: #2BA3D4;
 }
 
-#userInfo h2{
-	color: white;
-	font-size: 25px;
-	text-align: center;
-	padding-top: 25px;
-	padding-right: 670px;
-	
+#userImgName{
+	position: relative;
+	top: 15px;
+	left: 600px;
+	width: 600px;
 }
+
 #userInfo img{
 	border-radius: 50%;
-	margin-top: 15px;
-	margin-left: 630px;
 	width: 50px;
 	height: 50px;
 	float: left;
+	margin-right: 20px;
 }
 
-.circleDetailsParaEach{
-	margin-top: 16px;
+
+#userInfo h2{
+	position: relative;
+	color: white;
+	font-size: 25px;
+	float: left;
+	top: 10px;
+	
+}
+
+#buttons{
+	width: 250px;
+	float: left;
+	margin-left: 1210px;
+}
+
+.buttonEducation, .buttonWork{
+	cursor: pointer;
+	float: left;
+	text-align: center;
+	font-size: 16px;
+	color: white;
+	padding: 10px 20px;
+	margin: 18px 0 0 20px;
+	text-decoration: none;
+	-webkit-transition: background 0.3s ease;
+	-moz-transition: background 0.3s ease;
+	-ms-transition: background 0.3s ease;
+	-o-transition: background 0.3s ease;
+	transition: background 0.3s ease;
+}
+
+.buttonEducation {
+	background: rgba(71, 186, 255, 0.8);
+}
+
+.buttonEducation:hover {
+	background: rgba(71, 186, 255, 1);
+}
+
+.buttonWork {
+	background: rgba(241, 118, 122, 0.8);
+}
+
+.buttonWork:hover {
+	background: rgba(241, 118, 122, 1);
 }
 
 #footer { height: 2em; padding: 1em; text-align: center; 
@@ -135,7 +177,7 @@ padding-top: 10px;  color:white; text-align:center; font-size:15px; font-variant
 
 #circleDetailsModal{ /* Container */
 	float: right;
-	margin-top: 60px;
+	margin-top: 30px;
 	margin-right: 30px;	
 	width: 200px;
 }
@@ -158,6 +200,10 @@ padding-top: 10px;  color:white; text-align:center; font-size:15px; font-variant
 	color: grey;
 	padding-left: 7px;
 	width: 173px;
+}
+
+.circleDetailsParaEach{
+	margin-top: 16px;
 }
 
 /*
@@ -200,7 +246,7 @@ circle{
 	right:7px;
 }
 
-#hexagonContainer{	/* Hexagon Container */
+#hexagonContainer{	/* **********Hexagon Container********* */
 	height: 85px;
 	width: 40px;
 	position: relative;
@@ -236,7 +282,20 @@ circle{
 	border-right: 20px solid transparent;
 }
 
-#triRecContainer{	/* Triangle Container */
+#hexLine{
+	width: 159px;
+	height: 1px;
+	background-color: grey;
+	transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	-webkit-transform: rotate(90deg);
+	position:relative;
+	top:-40px;
+	right:60px;
+}
+
+#triRecContainer{	/* ***********Triangle Container*********** */
 	width: 406px;
 	height: 80px;
 	position:relative;
@@ -260,8 +319,74 @@ circle{
 	float: left;
 }
 
-#yearToYearContainer{	/* Year to Year Container */
-	
+#triRecLine{
+	width: 90px;
+	height: 1px;
+	background-color: grey;
+	position:relative;
+	top:20px;
+	right:80px;
+	transform: rotate(28deg);
+	-moz-transform: rotate(28deg);
+	-ms-transform: rotate(28deg);
+	-webkit-transform: rotate(28deg);
+}
+
+#schoolCircle{
+	position:relative; 
+	width:20px;
+	height:20px;
+	top:-10px; 
+	right:90px; 
+	border-radius:50%; 
+	background-color:grey;
+}
+
+#schoolCircle span{
+	color:white; 
+	position:relative; 
+	top:-79px; 
+	right:-7px; 
+	font-size:12px;
+}
+
+#collegeCircle{
+	position:relative; 
+	width:20px; 
+	height:20px; 
+	top:10px; 
+	right:90px; 
+	border-radius:50%; 
+	background-color:grey;
+}
+
+#collegeCircle span{
+	color:white; 
+	position:relative; 
+	top:-59px; 
+	right:-6px; 
+	font-size:12px;
+}
+
+#universityCircle{
+	position:relative; 
+	width:20px; 
+	height:20px; 
+	top:28px; 
+	right:90px; 
+	border-radius:50%; 
+	background-color:grey;
+}
+
+#universityCircle span{
+	color:white; 
+	position:relative; 
+	top:-39px; 
+	right:-6px; 
+	font-size:12px;
+}
+
+#yearToYearContainer{	/* *******Year to Year Container******* */
 	height: 70px;
 	width: 130px;
 	position: relative;
@@ -276,8 +401,12 @@ circle{
 	border-radius:50%; 
 	background-color:grey;
 	float: left;
-	margin-top: 10px;
-	
+	margin-top: 10px;	
+}
+
+#educationFirstYear p{
+	position:relative; 
+	top:40px;
 }
 
 #educationSecondYear{
@@ -290,14 +419,50 @@ circle{
 	right:0;
 }
 
-/*each right:30 next right:0 */
+#educationSecondYear p{
+	position:relative; 
+	top:50px; 
+	left:3px;
+}
 
-#areaContainer{		/* Area Container */
+#yTyLine{
+	width: 100px;
+	height: 1px;
+	background-color: grey;
+	position:relative;
+	top:25px;
+	right:0px;
+}
+
+
+#areaContainer{		/* **********Area Container*********** */
 /*	background-color: orange;*/
 	width: 240px;
 	position: relative;
 	top: 40px;
 	left: 260px;
+}
+
+#eCityLine{
+	width: 165px;
+	height: 1px;
+	background-color: grey;
+	position:relative;
+	top:12px;
+	right:0px;
+}
+
+#eCityCrossLine{
+	width: 15px;
+	height: 1px;
+	background-color: grey;
+	position:relative;
+	top:17px;
+	right:-162px;
+	transform: rotate(55deg);
+	-moz-transform: rotate(55deg);
+	-ms-transform: rotate(55deg);
+	-webkit-transform: rotate(55deg);
 }
 
 #eCity{
@@ -312,6 +477,36 @@ circle{
 /*	opacity: .5;*/
 }
 
+#eCity p{
+	position:relative; 
+	width:100px;
+	font-size:13px;
+	top:-24px;
+}
+
+#eStateLine{
+	width: 134px;
+	height: 1px;
+	background-color: grey;
+	position:relative;
+	top:2px;
+	right:0px;
+}
+
+#eStateCrossLine{
+	width: 15px;
+	height: 1px;
+	background-color: grey;
+	position:relative;
+	top:7px;
+	right:-130px;
+	transform: rotate(55deg);
+	-moz-transform: rotate(55deg);
+	-ms-transform: rotate(55deg);
+	-webkit-transform: rotate(55deg);
+}
+
+
 #eState{
 	height:30px; 
 	width:30px; 
@@ -321,6 +516,35 @@ circle{
 	right: -135px;
 	top: 10px;
 /*	opacity: .5;*/
+}
+
+#eState p{
+	position:relative; 
+	width:100px; 
+	font-size:13px; 
+	top:-24px;
+}
+
+#eCountryLine{
+	width: 89px;
+	height: 1px;
+	background-color: grey;
+	position:relative;
+	top:-5px;
+	right:0px;
+}
+
+#eCountryCrossLine{
+	width: 15px;
+	height: 1px;
+	background-color: grey;
+	position:relative;
+	top:0px;
+	right:-85px;
+	transform: rotate(55deg);
+	-moz-transform: rotate(55deg);
+	-ms-transform: rotate(55deg);
+	-webkit-transform: rotate(55deg);
 }
 
 #eCountry{
@@ -335,12 +559,10 @@ circle{
 /*	opacity: .5;*/
 }
 
-#line1{
-	width: 200px;
-	height: 1px;
-	background-color: grey;
-	transform: rotate(45deg);
-	-ms-transform: rotate(45deg); /* IE 9 */
-	-webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+#eCountry p{
+	position:relative; 
+	width:100px; 
+	font-size:13px; 
+	top:-21px;
 }
 /* ***************************************END Education Details Styles******************************************* */

@@ -13,14 +13,19 @@
 	</header>
 	
 	<section id="userInfo" >
-		<img src="images/default.png">
-		<h2>AYRUS NARIK</h2>
+		<div id="userImgName">
+			<img src="images/default.png">
+			<h2>Surya Kiran Juthuka</h2>
+		</div>
 	</section>
 	
+	
 	<section id="mainGraph">
-		<p id="work" style=" cursor:pointer;">Work  |</p>
-		<p id="education" style="cursor:pointer;">Education</p>
-		<div id="circleDetailsModal"></div>
+		
+		<div id="buttons">
+			<div id="work" class="buttonEducation">Work</div>
+			<div id="education" class="buttonWork">Education</div>
+		</div>
 		
 		<div id="educationDetails">
 			
@@ -30,94 +35,44 @@
 				<div id="hexTop"></div>
 				<div id="hexMiddle"><p>%</p></div>
 				<div id="hexBottom"></div>
-				<div id="hexLine" style="width: 159px;
-										height: 1px;
-										background-color: grey;
-										transform: rotate(90deg);
-										-webkit-transform: rotate(90deg);
-										 position:relative;
-										 top:-40px;
-										 right:60px;"></div>
+				<div id="hexLine"></div>
 			</div>
 			
 			<div id="triRecContainer">
 				<div id="leftTri"></div>
 				<div id="educationNameRect"><p></p></div>
-				<div id="triRecLine" style="width: 90px;
-										height: 1px;
-										background-color: grey;
-										 position:relative;
-										 top:20px;
-										 right:80px;
-										transform: rotate(28deg);
-										-webkit-transform: rotate(28deg);">
-				</div>
-				<div style="position:relative; width:20px; height:20px; top:-10px; right:90px; border-radius:50%; background-color:grey; "><span style="color:white; position:relative; top:-79px; right:-7px; font-size:12px;">S</span></div>
-					<div style="position:relative; width:20px; height:20px; top:10px; right:90px; border-radius:50%; background-color:grey; "><span style="color:white; position:relative; top:-59px; right:-6px; font-size:12px;">C</span></div>
-					<div style="position:relative; width:20px; height:20px; top:28px; right:90px; border-radius:50%; background-color:grey; "><span style="color:white; position:relative; top:-39px; right:-6px; font-size:12px;">U</span></div>
-				
+				<div id="triRecLine"></div>
+				<div id="schoolCircle"><span>S</span></div>
+				<div id="collegeCircle"><span>C</span></div>
+				<div id="universityCircle"><span>U</span></div>
 			</div>
 			
+			
 			<div id="yearToYearContainer">
-				<div id="educationFirstYear"><p style="position:relative; top:40px;"></p></div>
-				<div id="educationSecondYear"><p style="position:relative; top:50px; left:3px;"></p></div>
-				<div id="yTyLine" style="width: 100px;
-										height: 1px;
-										background-color: grey;
-										 position:relative;
-										 top:25px;
-										 right:0px;"></div>
+				<div id="educationFirstYear"><p></p></div>
+				<div id="educationSecondYear"><p></p></div>
+				<div id="yTyLine"></div>
 			</div>
 			
 			<div id="areaContainer">
-				<div id="eCityLine" style="width: 165px;
-										height: 1px;
-										background-color: grey;
-										 position:relative;
-										 top:12px;
-										 right:0px;"></div>
-				<div id="eCityCrossLine" style="width: 15px;
-										height: 1px;
-										background-color: grey;
-										 position:relative;
-										 top:17px;
-										 right:-162px;
-										-webkit-transform: rotate(55deg);"></div>
-				<div id="eCity"><p style="position:relative; width:100px; font-size:13px; top:-24px;"></p></div>
+				<div id="eCityLine"></div>
+				<div id="eCityCrossLine"></div>
+				<div id="eCity"><p></p></div>
 				
-				<div id="eStateLine" style="width: 134px;
-										height: 1px;
-										background-color: grey;
-										 position:relative;
-										 top:2px;
-										 right:0px"></div>
-				<div id="eStateCrossLine" style="width: 15px;
-										height: 1px;
-										background-color: grey;
-										 position:relative;
-										 top:7px;
-										 right:-130px;
-										-webkit-transform: rotate(55deg);"></div>
-				<div id="eState"><p style="position:relative; width:100px; font-size:13px; top:-24px;"></p></div>
+				<div id="eStateLine"></div>
+				<div id="eStateCrossLine"></div>
+				<div id="eState"><p></p></div>
 				
-				<div id="eCountryLine" style="width: 89px;
-										height: 1px;
-										background-color: grey;
-										 position:relative;
-										 top:-5px;
-										 right:0px"></div>
-				<div id="eCountryCrossLine" style="width: 15px;
-										height: 1px;
-										background-color: grey;
-										 position:relative;
-										 top:0px;
-										 right:-85px;
-										-webkit-transform: rotate(55deg);"></div>
-				<div id="eCountry"><p style="position:relative; width:100px; font-size:13px; top:-21px;"></p></div>
+				<div id="eCountryLine"></div>
+				<div id="eCountryCrossLine"></div>
+				<div id="eCountry"><p></p></div>
 				
 			</div>
 			
 		</div>
+		
+		<div id="circleDetailsModal"></div>
+		
 	</section> 
        
     <footer id="footer">
