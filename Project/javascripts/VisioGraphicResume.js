@@ -1,4 +1,3 @@
-
 //SVG WIDTH & HEIGHT
 		var w = 600;
 		var h = 450;
@@ -22,12 +21,18 @@
 			{ "id": 4, "years": 4, "midpoint": 2008, "start" : 2006, "end" : 2010, "name":"Dav Public School", "country":"INDIA", "state":"Tamil Nadu", "city":"Chennai", "percentage":"60", "etype":"school" },
 			{ "id": 5, "years": 1, "midpoint": 2006.5, "start" : 2006, "end" : 2007, "name":"Sri Chaitanya Junior Kalasala", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"80", "etype":"college" },
 			{ "id": 6, "years": 3, "midpoint": 2007.5, "start" : 2006, "end" : 2009, "name":"KG Reddy College Of Engineering & Technology", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"70", "etype":"college" },
-			{ "id": 7, "years": 5, "midpoint": 2012.5, "start" : 2010, "end" : 2015, "name":"Univeristy Of Massachusetts Dartmouth", "country":"USA", "state":"Massachusetts", "city":"New Bedford", "percentage":"90", "etype":"university" }
+			{ "id": 7, "years": 5, "midpoint": 2012.5, "start" : 2010, "end" : 2015, "name":"Univeristy Of Massachusetts Dartmouth", "country":"USA", "state":"Massachusetts", "city":"New Bedford", "percentage":"90", "etype":"university" },
+			{ "id": 8, "years": 2, "midpoint": 2013, "start" : 2012, "end" : 2014, "name":"Univeristy Of California", "country":"USA", "state":"California", "city":"Long Beach", "percentage":"70", "etype":"university" }
 			
-		];	dataset.sort(function(a, b){
+		];
+
+//dataset.push({ "id": 8, "years": 2, "midpoint": 2012.5, "start" : 2010, "end" : 2015, "name":"Univeristy Of Massachusetts Dartmouth", "country":"USA", "state":"Massachusetts", "city":"New Bedford", "percentage":"90", "etype":"university" });
+
+dataset.sort(function(a, b){
 			 return b.years-a.years
 			})
            
+
 			var circle_para_group = d3.select("#circleDetailsModal")
 			.selectAll("div")
 			.data(dataset)
@@ -553,12 +558,32 @@
 			d3.select("div#work")
 				.on("click", function() {
                     
-                 var dataset = [ [5,1993.5,1991,1996], [2,1993,1992,1994] , [4,2001,1999,2003], [3,1996.5,1995,1998], [1,1994.5,1994,1995], [1,2001.5,2001,2002], [2,1998,1997,1999], [3,1994.5,1993,1996]
-                          ];
+					
+//			var dataset = [ [5,1993.5,1991,1996], [2,1993,1992,1994] , [4,2001,1999,2003], [3,1996.5,1995,1998], [1,1994.5,1994,1995], [1,2001.5,2001,2002], [2,1998,1997,1999], [3,1994.5,1993,1996]
+//                          ];
+					
+			var dataset = [
+			{ "id": 1, "years": 5, "midpoint": 1993.5, "start" : 1991, "end" : 1996, "name":"P.Obul Reddy Public School", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"40", "etype":"school" },
+			{ "id": 2, "years": 2, "midpoint": 1993, "start" : 1992, "end" : 1994, "name":"Treveni Talent School", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"60", "etype":"school" },
+			{ "id": 3, "years": 4, "midpoint": 2001, "start" : 1999, "end" : 2003, "name":"Trinity Public School", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"50", "etype":"school" },
+			{ "id": 4, "years": 3, "midpoint": 1997.5, "start" : 1996, "end" : 1999, "name":"Dav Public School", "country":"INDIA", "state":"Tamil Nadu", "city":"Chennai", "percentage":"60", "etype":"school" },
+			{ "id": 5, "years": 1, "midpoint": 1994.5, "start" : 1994, "end" : 1995, "name":"Sri Chaitanya Junior Kalasala", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"80", "etype":"college" },
+			{ "id": 6, "years": 1, "midpoint": 2001.5, "start" : 2001, "end" : 2002, "name":"KG Reddy College Of Engineering & Technology", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"70", "etype":"college" },
+			{ "id": 7, "years": 2, "midpoint": 1998, "start" : 1997, "end" : 1999, "name":"Univeristy Of Massachusetts Lowel", "country":"USA", "state":"Massachusetts", "city":"New Bedford", "percentage":"90", "etype":"university" },
+			{ "id": 8, "years": 3, "midpoint": 1994.5, "start" : 1993, "end" : 1996, "name":"Univeristy Of Massachusetts Lowel", "country":"USA", "state":"Massachusetts", "city":"New Bedford", "percentage":"90", "etype":"university" },{}
+			
+		];
+					
+			
+					
+//			dataset.sort(function(a, b){
+//			 return b.years-a.years
+//			})
+           
                     
                      //Update scale domains
-                     Xscale.domain([0, d3.max(dataset,function(d){ return d[0]; })]);
-                     Yscale.domain([d3.min(dataset,function(d){ return d[2]; })-1, d3.max(dataset,function(d){ return (d[3]+1); })])
+                     Xscale.domain([0, d3.max(dataset,function(d){ return d.years; })]);
+                     Yscale.domain([d3.min(dataset,function(d){ return d.start; })-1, d3.max(dataset,function(d){ return (d.end+1); })])
                     
    
 					//Update all circles
@@ -566,7 +591,6 @@
 					   .data(dataset)
 					   .transition()
 					   .duration(1000)
-						//.ease("elastic")
 					   .each("start", function() {
 						   d3.select(this)
 						     //.attr("fill", "magenta")
@@ -574,33 +598,23 @@
 						     .attr("r", 8);
 					   })
   					   
-                    .attr("cx", function(d){ return Xscale(d[0]); })
-                            .attr("cy", function(d){ return Yscale(d[1]); })
+                    .attr("cx", function(d){ return Xscale(d.years); })
+                            .attr("cy", function(d){ return Yscale(d.midpoint); })
                     
                     .transition()
 					   .duration(1000)
-						//.ease("leniar")
                     
                     
 //                        .attr("cx", function(d){ return Xscale(d[0]); })
 //                            .attr("cy", function(d){ return Yscale(d[1]); })
                             .attr("r", function(d){ 
-                            if(d[0]==1){
-                                return (d[0]*10);} else if(d[0]==2){
-                                return (d[0]*10);} else if(d[0]==3){
-                                return (d[0]*10);} else if(d[0]==4){
-                                return (d[0]*10);} else if(d[0]==5){
-                                return (d[0]*10);} else if(d[0]==6){
-                                return (d[0]*10);} else if(d[0]==7){
-                                return (d[0]*10);} else if(d[0]==8){
-                                return (d[0]*10);} else if(d[0]==9){
-                                return (d[0]*10);}
+                            return (d.years*10);
                             })
                             .attr("fill",function(d){ 
-                            if(d[0]==1){
-                                return c1;} else if(d[0]==2){
-                                return c2;} else if(d[0]==3){
-                                return c3;} else if(d[0]==4){
+                            if(d.years==1){
+                                return c1;} else if(d.years==2){
+                                return c2;} else if(d.years==3){
+                                return c3;} else if(d.years==4){
                                 return c4;} else{ return c5;  }
                             })
                             .attr("stroke","grey")
@@ -614,18 +628,17 @@
                     .data(dataset)
                     .transition()
 					   .duration(1000)
-						//.ease("circle")
 					   .each("start", function() {
 						   d3.select(this)
 						     .attr("x1", padding+10)
-                           .attr("y1",function(d){ return Yscale(d[3]+padding); }) //Add (d[3]+padding) and see the magic
+                           .attr("y1",function(d){ return Yscale(d.end+padding); }) //Add (d[3]+padding) and see the magic
 						     .attr("x2", padding+10)
-                           .attr("y2",function(d){ return Yscale(d[3]+padding); }) //Add (d[3]+padding) and see the magic
+                           .attr("y2",function(d){ return Yscale(d.end+padding); }) //Add (d[3]+padding) and see the magic
 					   })
                     .attr("x1",Xscale(0.05))
-                    .attr("y1",function(d){ return Yscale(d[3]); })
-                    .attr("x2",function(d){ return Xscale(d[0]-(d[0]/8)); })
-                    .attr("y2",function(d){ return Yscale(d[3]); })
+                    .attr("y1",function(d){ return Yscale(d.end); })
+                    .attr("x2",function(d){ return Xscale(d.years-(d.years/8)); })
+                    .attr("y2",function(d){ return Yscale(d.end); })
                     .attr("stroke","teal");
             
             
@@ -633,18 +646,17 @@
                     .data(dataset)
                     .transition()
 					   .duration(1000)
-						//.ease("circle")
 					   .each("start", function() {
 						   d3.select(this)
 						     .attr("x1", padding+10)
-                           .attr("y1",function(d){ return Yscale(d[3]+padding); }) //Add (d[3]+padding) and see the magic
+                           .attr("y1",function(d){ return Yscale(d.end+padding); }) //Add (d[3]+padding) and see the magic
 						     .attr("x2", padding+10)
-                           .attr("y2",function(d){ return Yscale(d[1]+padding); }) //Add (d[3]+padding) and see the magic
+                           .attr("y2",function(d){ return Yscale(d.midpoint+padding); }) //Add (d[3]+padding) and see the magic
 					   })
-                    .attr("x1",function(d){ return Xscale(d[0]-(d[0]/8)); })
-                    .attr("y1",function(d){ return Yscale(d[3]); })
-                    .attr("x2",function(d){ return Xscale(d[0]); })
-                    .attr("y2",function(d){ return Yscale(d[1]); })
+                    .attr("x1",function(d){ return Xscale(d.years-(d.years/8)); })
+                    .attr("y1",function(d){ return Yscale(d.end); })
+                    .attr("x2",function(d){ return Xscale(d.years); })
+                    .attr("y2",function(d){ return Yscale(d.midpoint); })
                     .attr("stroke","teal");
             
             
@@ -652,18 +664,17 @@
                     .data(dataset)
                     .transition()
 					   .duration(1000)
-			.ease("cubic-in-out")
 					   .each("start", function() {
 						   d3.select(this)
 						     .attr("x1", padding+10)
-                           .attr("y1",function(d){ return Yscale(d[2]); })
+                           .attr("y1",function(d){ return Yscale(d.start); })
 						     .attr("x2", padding+10)
-                           .attr("y2",function(d){ return Yscale(d[2]); })
+                           .attr("y2",function(d){ return Yscale(d.start); })
 					   })
                     .attr("x1",Xscale(0.05))
-                    .attr("y1",function(d){ return Yscale(d[2]); })
-                    .attr("x2",function(d){ return Xscale(d[0]-(d[0]/8)); })
-                    .attr("y2",function(d){ return Yscale(d[2]); })
+                    .attr("y1",function(d){ return Yscale(d.start); })
+                    .attr("x2",function(d){ return Xscale(d.years-(d.years/8)); })
+                    .attr("y2",function(d){ return Yscale(d.start); })
                     .attr("stroke","teal");
             
             
@@ -671,20 +682,61 @@
                     .data(dataset)
                     .transition()
 					   .duration(1000)
-			.ease("cubic-in-out")
 					   .each("start", function() {
 						   d3.select(this)
 						     .attr("x1", padding+10)
-                           .attr("y1",function(d){ return Yscale(d[2]); })
+                           .attr("y1",function(d){ return Yscale(d.start); })
 						     .attr("x2", padding+10)
-                           .attr("y2",function(d){ return Yscale(d[1]); })
+                           .attr("y2",function(d){ return Yscale(d.midpoint); })
 					   })
-                    .attr("x1",function(d){ return Xscale(d[0]-(d[0]/8)); })
-                    .attr("y1",function(d){ return Yscale(d[2]); })
-                    .attr("x2",function(d){ return Xscale(d[0]); })
-                    .attr("y2",function(d){ return Yscale(d[1]); })
+                    .attr("x1",function(d){ return Xscale(d.years-(d.years/8)); })
+                    .attr("y1",function(d){ return Yscale(d.start); })
+                    .attr("x2",function(d){ return Xscale(d.years); })
+                    .attr("y2",function(d){ return Yscale(d.midpoint); })
                     .attr("stroke","teal");
-            
+					
+					
+					d3.select("body")
+					.select("div#yearSlider")
+					.style("display","block");
+					
+					d3.select("body")
+					.select("#percentageSlider")
+					.selectAll("p")
+					.style("display","none");
+					
+					
+					d3.select("body")
+					.select("#hexMiddle")
+					.select("p")
+					.style("font-size",18+"px")
+					.style("position","relative")
+					.style("top",5+"px")
+					.style("right",5+"px")
+					.text("EXP");
+					
+					
+					d3.select("body")
+					.select("#schoolCircle")
+					.style("display","none");
+					
+					d3.select("body")
+					.select("#collegeCircle")
+					.style("display","none");
+					
+					d3.select("body")
+					.select("#universityCircle")
+					.style("display","none");
+					
+					d3.select("body")
+					.select("#workCircle")
+					.style("display","block");
+					
+					d3.select("body")
+					.select("#triRecLine")
+					.style("display","none");
+					
+					
 					//Update X axis
 					svg.select(".x.axis")
 				    	.transition()
@@ -696,6 +748,7 @@
 				    	.transition()
 				    	.duration(1000)
 						.call(Yaxis);
+
 
 				});
 			  
@@ -732,13 +785,31 @@
             //On click, update with new data			
 			d3.select("div#education")
 				.on("click", function() {
-                    
-                 var dataset = [ [3,2012.5,2011,2014], [2,2010,2009,2011] , [1,2009.5,2009,2010], [4,2008,2006,2010], [1,2006.5,2006,2007], [3,2007.5,2006,2009], [5,2012.5,2010,2015], []
-                          ];
+          
+					
+			var dataset = [
+			{ "id": 1, "years": 3, "midpoint": 2012.5, "start" : 2011, "end" : 2014, "name":"P.Obul Reddy Public School", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"40", "etype":"school" },
+			{ "id": 2, "years": 2, "midpoint": 2010, "start" : 2009, "end" : 2011, "name":"Treveni Talent School", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"60", "etype":"school" },
+			{ "id": 3, "years": 1, "midpoint": 2009.5, "start" : 2009, "end" : 2010, "name":"Trinity Public School", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"50", "etype":"school" },
+			{ "id": 4, "years": 4, "midpoint": 2008, "start" : 2006, "end" : 2010, "name":"Dav Public School", "country":"INDIA", "state":"Tamil Nadu", "city":"Chennai", "percentage":"60", "etype":"school" },
+			{ "id": 5, "years": 1, "midpoint": 2006.5, "start" : 2006, "end" : 2007, "name":"Sri Chaitanya Junior Kalasala", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"80", "etype":"college" },
+			{ "id": 6, "years": 3, "midpoint": 2007.5, "start" : 2006, "end" : 2009, "name":"KG Reddy College Of Engineering & Technology", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"70", "etype":"college" },
+			{ "id": 7, "years": 5, "midpoint": 2012.5, "start" : 2010, "end" : 2015, "name":"Univeristy Of Massachusetts Boston", "country":"USA", "state":"Massachusetts", "city":"New Bedford", "percentage":"90", "etype":"university" },
+			{ "id": 8, "years": 2, "midpoint": 2013, "start" : 2012, "end" : 2014, "name":"Univeristy Of California", "country":"USA", "state":"California", "city":"Long Beach", "percentage":"70", "etype":"university" }
+			
+		];
+					
+//			dataset.sort(function(a, b){
+//			 return b.years-a.years
+//			})
+//           
+					
+//                 var dataset = [ [3,2012.5,2011,2014], [2,2010,2009,2011] , [1,2009.5,2009,2010], [4,2008,2006,2010], [1,2006.5,2006,2007], [3,2007.5,2006,2009], [5,2012.5,2010,2015], []
+//                          ];
                     
                      //Update scale domains
-                     Xscale.domain([0, d3.max(dataset,function(d){ return d[0]; })]);
-                     Yscale.domain([d3.min(dataset,function(d){ return d[2]; })-1, d3.max(dataset,function(d){ return (d[3]+1); })])
+                     Xscale.domain([0, d3.max(dataset,function(d){ return d.years; })]);
+                     Yscale.domain([d3.min(dataset,function(d){ return d.start; })-1, d3.max(dataset,function(d){ return (d.end+1); })])
                     
    
 					//Update all circles
@@ -753,8 +824,8 @@
 						     .attr("r", 8);
 					   })
   					   
-                    .attr("cx", function(d){ return Xscale(d[0]); })
-                            .attr("cy", function(d){ return Yscale(d[1]); })
+                    .attr("cx", function(d){ return Xscale(d.years); })
+                            .attr("cy", function(d){ return Yscale(d.midpoint); })
                     
                     .transition()
 					   .duration(1000)
@@ -763,22 +834,13 @@
 //                        .attr("cx", function(d){ return Xscale(d[0]); })
 //                            .attr("cy", function(d){ return Yscale(d[1]); })
                             .attr("r", function(d){ 
-                            if(d[0]==1){
-                                return (d[0]*10);} else if(d[0]==2){
-                                return (d[0]*10);} else if(d[0]==3){
-                                return (d[0]*10);} else if(d[0]==4){
-                                return (d[0]*10);} else if(d[0]==5){
-                                return (d[0]*10);} else if(d[0]==6){
-                                return (d[0]*10);} else if(d[0]==7){
-                                return (d[0]*10);} else if(d[0]==8){
-                                return (d[0]*10);} else if(d[0]==9){
-                                return (d[0]*10);}
+                            return (d.years*10);
                             })
                             .attr("fill",function(d){ 
-                            if(d[0]==1){
-                                return c1;} else if(d[0]==2){
-                                return c2;} else if(d[0]==3){
-                                return c3;} else if(d[0]==4){
+                            if(d.years==1){
+                                return c1;} else if(d.years==2){
+                                return c2;} else if(d.years==3){
+                                return c3;} else if(d.years==4){
                                 return c4;} else{ return c5;  }
                             })
                             .attr("stroke","grey")
@@ -795,14 +857,14 @@
 					   .each("start", function() {
 						   d3.select(this)
 						     .attr("x1", padding+10)
-                           .attr("y1",function(d){ return Yscale(d[3]+padding); }) //Add (d[3]+padding) and see the magic
+                           .attr("y1",function(d){ return Yscale(d.end+padding); }) //Add (d[3]+padding) and see the magic
 						     .attr("x2", padding+10)
-                           .attr("y2",function(d){ return Yscale(d[3]+padding); }) //Add (d[3]+padding) and see the magic
+                           .attr("y2",function(d){ return Yscale(d.end+padding); }) //Add (d[3]+padding) and see the magic
 					   })
                     .attr("x1",Xscale(0.05))
-                    .attr("y1",function(d){ return Yscale(d[3]); })
-                    .attr("x2",function(d){ return Xscale(d[0]-(d[0]/8)); })
-                    .attr("y2",function(d){ return Yscale(d[3]); })
+                    .attr("y1",function(d){ return Yscale(d.end); })
+                    .attr("x2",function(d){ return Xscale(d.years-(d.years/8)); })
+                    .attr("y2",function(d){ return Yscale(d.end); })
                     .attr("stroke","teal");
             
             
@@ -813,14 +875,14 @@
 					   .each("start", function() {
 						   d3.select(this)
 						     .attr("x1", padding+10)
-                           .attr("y1",function(d){ return Yscale(d[3]+padding); }) //Add (d[3]+padding) and see the magic
+                           .attr("y1",function(d){ return Yscale(d.end+padding); }) //Add (d[3]+padding) and see the magic
 						     .attr("x2", padding+10)
-                           .attr("y2",function(d){ return Yscale(d[1]+padding); }) //Add (d[3]+padding) and see the magic
+                           .attr("y2",function(d){ return Yscale(d.midpoint+padding); }) //Add (d[3]+padding) and see the magic
 					   })
-                    .attr("x1",function(d){ return Xscale(d[0]-(d[0]/8)); })
-                    .attr("y1",function(d){ return Yscale(d[3]); })
-                    .attr("x2",function(d){ return Xscale(d[0]); })
-                    .attr("y2",function(d){ return Yscale(d[1]); })
+                    .attr("x1",function(d){ return Xscale(d.years-(d.years/8)); })
+                    .attr("y1",function(d){ return Yscale(d.end); })
+                    .attr("x2",function(d){ return Xscale(d.years); })
+                    .attr("y2",function(d){ return Yscale(d.midpoint); })
                     .attr("stroke","teal");
             
             
@@ -831,14 +893,14 @@
 					   .each("start", function() {
 						   d3.select(this)
 						     .attr("x1", padding+10)
-                           .attr("y1",function(d){ return Yscale(d[2]); })
+                           .attr("y1",function(d){ return Yscale(d.start); })
 						     .attr("x2", padding+10)
-                           .attr("y2",function(d){ return Yscale(d[2]); })
+                           .attr("y2",function(d){ return Yscale(d.start); })
 					   })
                     .attr("x1",Xscale(0.05))
-                    .attr("y1",function(d){ return Yscale(d[2]); })
-                    .attr("x2",function(d){ return Xscale(d[0]-(d[0]/8)); })
-                    .attr("y2",function(d){ return Yscale(d[2]); })
+                    .attr("y1",function(d){ return Yscale(d.start); })
+                    .attr("x2",function(d){ return Xscale(d.years-(d.years/8)); })
+                    .attr("y2",function(d){ return Yscale(d.start); })
                     .attr("stroke","teal");
             
             
@@ -849,15 +911,55 @@
 					   .each("start", function() {
 						   d3.select(this)
 						     .attr("x1", padding+10)
-                           .attr("y1",function(d){ return Yscale(d[2]); })
+                           .attr("y1",function(d){ return Yscale(d.start); })
 						     .attr("x2", padding+10)
-                           .attr("y2",function(d){ return Yscale(d[1]); })
+                           .attr("y2",function(d){ return Yscale(d.midpoint); })
 					   })
-                    .attr("x1",function(d){ return Xscale(d[0]-(d[0]/8)); })
-                    .attr("y1",function(d){ return Yscale(d[2]); })
-                    .attr("x2",function(d){ return Xscale(d[0]); })
-                    .attr("y2",function(d){ return Yscale(d[1]); })
+                    .attr("x1",function(d){ return Xscale(d.years-(d.years/8)); })
+                    .attr("y1",function(d){ return Yscale(d.start); })
+                    .attr("x2",function(d){ return Xscale(d.years); })
+                    .attr("y2",function(d){ return Yscale(d.midpoint); })
                     .attr("stroke","teal");
+					
+					
+					d3.select("body")
+					.select("div#yearSlider")
+					.style("display","none");
+					
+					d3.select("body")
+					.select("#percentageSlider")
+					.selectAll("p")
+					.style("display","block");
+					
+					d3.select("body")
+					.select("#hexMiddle")
+					.select("p")
+					.style("font-size",25+"px")
+					.style("position","relative")
+					.style("top",0+"px")
+					.style("right",0+"px")
+					.text("%");
+					
+					d3.select("body")
+					.select("#workCircle")
+					.style("display","none");
+					
+					d3.select("body")
+					.select("#schoolCircle")
+					.style("display","block");
+					
+					d3.select("body")
+					.select("#collegeCircle")
+					.style("display","block");
+					
+					d3.select("body")
+					.select("#universityCircle")
+					.style("display","block");
+					
+					d3.select("body")
+					.select("#triRecLine")
+					.style("display","block");
+					
             
 					//Update X axis
 					svg.select(".x.axis")
@@ -892,7 +994,21 @@ d3.select("body")
 		return d;
 	})
 
+//Work Details
+var work_details = [1,2,3,4,5,6,7,8,9,10]; 
 
+d3.select("body")
+	.select("#educationDetails")
+	.select("#yearSlider")
+	.selectAll("div.test1")
+	.data(work_details)
+	.enter()
+	.append("div")
+	.attr("class","yearTicks")
+	.append("p")
+	.text(function(d){
+		return d;
+	})
 
 
 

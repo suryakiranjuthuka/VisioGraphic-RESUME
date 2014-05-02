@@ -55,7 +55,7 @@ table {
 */
 
 html { height: 100%; width: 100%; background-color: #F1F1F1; /*background: url(../images/light_grey.png) repeat #222;*/  }
-body { height: 100%; width: 100%; font-family: calibri;  }
+body { height: 100%; width: 100%; font-family: calibri;  margin-left: auto; margin-right: auto; }
 
 svg{
 	margin-top: 80px;
@@ -75,8 +75,23 @@ svg{
 	background-color: #F1F1F1;
 }
 
-#header { height: 60px;  text-align: left; background: #000000;}
-#header h1 {padding-top: 15px;  color:white; text-align:center; font-size:30px; font-variant: small-caps; letter-spacing: 10px;}
+#header{ 
+	height: 60px;  
+	width: 100%;
+	background: #000000;
+}
+
+#header h1{
+	position: absolute;
+	padding-top: 15px; 
+	left: 540px;
+	width: 500px;
+	color:white; 
+	text-align:center; 
+	font-size:30px; 
+	font-variant: small-caps; 
+	letter-spacing: 10px;
+}
 
 #userInfo{
 	height:80px;
@@ -109,9 +124,11 @@ svg{
 }
 
 #buttons{
-	width: 250px;
-	float: left;
-	margin-left: 1210px;
+	position: absolute; 
+	width: 240px;
+	left: 1250px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid lightgrey;
 }
 
 .buttonEducation, .buttonWork{
@@ -176,10 +193,13 @@ padding-top: 10px;  color:white; text-align:center; font-size:15px; font-variant
 }
 
 #circleDetailsModal{ /* Container */
+	position: absolute;
 	float: right;
 	margin-top: 30px;
 	margin-right: 30px;	
 	width: 200px;
+	left: 1260px;
+	top: 220px;
 }
 
 .circleParaGroup{
@@ -246,6 +266,22 @@ circle{
 	right:7px;
 }
 
+.yearTicks{
+	position: relative;
+	float: left;
+	width: 1px;
+	height: 10px;
+	margin-left: 45.5px;
+	background-color: grey;
+	top:-15px;
+}
+
+.yearTicks p{
+	position: relative;
+	top:-20px;
+	right:5px;
+}
+
 #hexagonContainer{	/* **********Hexagon Container********* */
 	height: 85px;
 	width: 40px;
@@ -272,7 +308,6 @@ circle{
 	padding-top:5px; 
 	padding-left:12px; 
 	font-size:25px; 
-	font-weight:900;
 }
 
 #hexBottom{
@@ -383,6 +418,25 @@ circle{
 	position:relative; 
 	top:-39px; 
 	right:-6px; 
+	font-size:12px;
+}
+
+#workCircle{
+	position:relative; 
+	width:20px; 
+	height:20px; 
+	top:30px; 
+	right:90px;  
+	border-radius:50%; 
+	background-color:grey;
+	display: none;
+}
+
+#workCircle span{
+	color:white; 
+	position:relative; 
+	top:-78px; 
+	right:-5px;
 	font-size:12px;
 }
 
