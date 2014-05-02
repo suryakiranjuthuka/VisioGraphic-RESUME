@@ -72,7 +72,7 @@ svg{
 	padding-bottom: 2em;
 	padding-left:2em;
 	padding-right:20px;
-	background-color: #F1F1F1;
+	background-color: white;
 }
 
 #header{ 
@@ -180,16 +180,23 @@ padding-top: 10px;  color:white; text-align:center; font-size:15px; font-variant
 	background-color : transparent;
 }
 
-.axis path,
+
+.axis path {
+	fill: none;
+/*	stroke:#FF534E;*/
+	stroke:none;
+	shape-rendering: crispEdges;
+}
+
 .axis line {
 	fill: none;
-	stroke:#FF534E;
+	stroke:white;
 	shape-rendering: crispEdges;
 }
 .axis text {
 	font-family: sans-serif;
 	font-size: 11px;
-	fill: green;
+	fill: white;
 }
 
 #circleDetailsModal{ /* Container */
@@ -226,6 +233,8 @@ padding-top: 10px;  color:white; text-align:center; font-size:15px; font-variant
 	margin-top: 16px;
 }
 
+
+
 /*
 circle:hover{
 	fill:turquoise;
@@ -242,12 +251,25 @@ circle{
 
 /* ***************************************START Education Details Styles******************************************* */
 #educationDetails{
-	width: 506px;
+	width: 1080px;
 	height: 400px;
-	background-color: lightgrey;
+/*	background-color: #D9FFB4;*/
+	background: url(../images/grey.png) repeat #222;
 	position: absolute;
 	top: 205px;
 	left: 139px;
+	border-radius: 1%;
+}
+
+#yAxisBackground{
+	height: 100%;
+	width: 46px;
+	background-color: grey;
+/*	background: url(../images/grey_wash_wall.png) repeat #222;*/
+	float: right;
+	position: relative;
+	top: -350px;
+	right: 528px;
 }
 
 .percentageTicks{
@@ -256,7 +278,7 @@ circle{
 	width: 1px;
 	height: 10px;
 	margin-left: 45.5px;
-	background-color: grey;
+	background-color: rgb(180, 180, 180);
 	top:-5px;
 }
 
@@ -264,22 +286,25 @@ circle{
 	position: relative;
 	top:-20px;
 	right:7px;
+	color: grey;
 }
 
 .yearTicks{
 	position: relative;
 	float: left;
-	width: 1px;
+	width: .5px;
 	height: 10px;
 	margin-left: 45.5px;
-	background-color: grey;
-	top:-15px;
+	background-color: rgb(180, 180, 180);
+	top:0px;
+	right: 465px;
 }
 
 .yearTicks p{
 	position: relative;
-	top:-20px;
+	top:-25px;
 	right:5px;
+	color: grey;
 }
 
 #hexagonContainer{	/* **********Hexagon Container********* */
@@ -290,37 +315,11 @@ circle{
 	right: -445px;
 /*	background-color: green;*/
 }
-#hexTop{
-	width: 0;
-	border-bottom: 25px solid grey;
-	border-left: 20px solid transparent;
-	border-right: 20px solid transparent;
-}
-
-#hexMiddle{
-	width: 40px;
-	height: 35px;
-	background-color: grey;
-}
-
-#hexMiddle p{
-	color:white; 
-	padding-top:5px; 
-	padding-left:12px; 
-	font-size:25px; 
-}
-
-#hexBottom{
-	width: 0;
-	border-top: 25px solid grey;
-	border-left: 20px solid transparent;
-	border-right: 20px solid transparent;
-}
 
 #hexLine{
 	width: 159px;
 	height: 1px;
-	background-color: grey;
+	background-color: rgb(180, 180, 180);
 	transform: rotate(90deg);
 	-moz-transform: rotate(90deg);
 	-ms-transform: rotate(90deg);
@@ -328,6 +327,33 @@ circle{
 	position:relative;
 	top:-40px;
 	right:60px;
+}
+
+#hexTop{
+	width: 0;
+	border-bottom: 25px solid rgb(180, 180, 180);
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+}
+
+#hexMiddle{
+	width: 40px;
+	height: 35px;
+	background-color: rgb(180, 180, 180);
+}
+
+#hexMiddle p{
+	color:#606060; 
+	padding-top:5px; 
+	padding-left:12px; 
+	font-size:25px; 
+}
+
+#hexBottom{
+	width: 0;
+	border-top: 25px solid rgb(180, 180, 180);
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
 }
 
 #triRecContainer{	/* ***********Triangle Container*********** */
@@ -341,7 +367,7 @@ circle{
 
 #leftTri{
 	border-top: 40px solid transparent;
-	border-right: 50px solid grey;
+	border-right: 50px solid #EA5460;
 	border-bottom: 40px solid transparent;
 	float: left;
 	
@@ -350,14 +376,14 @@ circle{
 #educationNameRect{
 	width:356px;
 	height:80px;
-	background-color:grey;
+	background-color:#EA5460;
 	float: left;
 }
 
 #triRecLine{
 	width: 90px;
 	height: 1px;
-	background-color: grey;
+	background-color: rgb(180, 180, 180);
 	position:relative;
 	top:20px;
 	right:80px;
@@ -367,6 +393,16 @@ circle{
 	-webkit-transform: rotate(28deg);
 }
 
+#workTriRecLine{
+	width: 90px;
+	height: 1px;
+	background-color: rgb(180, 180, 180);
+	position:relative;
+	top:40px;
+	right:80px;
+	display: none;
+}
+
 #schoolCircle{
 	position:relative; 
 	width:20px;
@@ -374,7 +410,7 @@ circle{
 	top:-10px; 
 	right:90px; 
 	border-radius:50%; 
-	background-color:grey;
+	background-color:#95AE00;
 }
 
 #schoolCircle span{
@@ -392,7 +428,7 @@ circle{
 	top:10px; 
 	right:90px; 
 	border-radius:50%; 
-	background-color:grey;
+	background-color:#FFBE09;
 }
 
 #collegeCircle span{
@@ -410,7 +446,7 @@ circle{
 	top:28px; 
 	right:90px; 
 	border-radius:50%; 
-	background-color:grey;
+	background-color:#32A6DA;
 }
 
 #universityCircle span{
@@ -428,7 +464,7 @@ circle{
 	top:30px; 
 	right:90px;  
 	border-radius:50%; 
-	background-color:grey;
+	background-color:#FFBE09;
 	display: none;
 }
 
@@ -453,7 +489,7 @@ circle{
 	height:30px; 
 	width:30px; 
 	border-radius:50%; 
-	background-color:grey;
+	background-color:#13A89E;
 	float: left;
 	margin-top: 10px;	
 }
@@ -467,7 +503,7 @@ circle{
 	height:45px; 
 	width:45px; 
 	border-radius:50%; 
-	background-color:grey;
+	background-color:#E25942;
 	float: right;
 	position: relative;
 	right:0;
@@ -480,12 +516,12 @@ circle{
 }
 
 #yTyLine{
-	width: 100px;
+	width: 60px;
 	height: 1px;
-	background-color: grey;
+	background-color: rgb(180, 180, 180);
 	position:relative;
 	top:25px;
-	right:0px;
+	right:-30px;
 }
 
 
@@ -500,7 +536,7 @@ circle{
 #eCityLine{
 	width: 165px;
 	height: 1px;
-	background-color: grey;
+	background-color: rgb(180, 180, 180);
 	position:relative;
 	top:12px;
 	right:0px;
@@ -509,7 +545,7 @@ circle{
 #eCityCrossLine{
 	width: 15px;
 	height: 1px;
-	background-color: grey;
+	background-color: rgb(180, 180, 180);
 	position:relative;
 	top:17px;
 	right:-162px;
@@ -523,7 +559,7 @@ circle{
 	height:20px; 
 	width:20px; 
 	border-radius:50%; 
-	background-color:grey;
+	background-color:#95AE00;
 	margin-top: 10px;
 	position: relative;
 	right: -170px;
@@ -541,7 +577,7 @@ circle{
 #eStateLine{
 	width: 134px;
 	height: 1px;
-	background-color: grey;
+	background-color: rgb(180, 180, 180);
 	position:relative;
 	top:2px;
 	right:0px;
@@ -550,7 +586,7 @@ circle{
 #eStateCrossLine{
 	width: 15px;
 	height: 1px;
-	background-color: grey;
+	background-color: rgb(180, 180, 180);
 	position:relative;
 	top:7px;
 	right:-130px;
@@ -565,7 +601,7 @@ circle{
 	height:30px; 
 	width:30px; 
 	border-radius:50%; 
-	background-color:grey;
+	background-color:#FFBE09;
 	position: relative;
 	right: -135px;
 	top: 10px;
@@ -582,7 +618,7 @@ circle{
 #eCountryLine{
 	width: 89px;
 	height: 1px;
-	background-color: grey;
+	background-color: rgb(180, 180, 180);
 	position:relative;
 	top:-5px;
 	right:0px;
@@ -591,7 +627,7 @@ circle{
 #eCountryCrossLine{
 	width: 15px;
 	height: 1px;
-	background-color: grey;
+	background-color: rgb(180, 180, 180);
 	position:relative;
 	top:0px;
 	right:-85px;
@@ -605,7 +641,7 @@ circle{
 	height:40px; 
 	width:40px; 
 	border-radius:50%; 
-	background-color:grey;
+	background-color:#32A6DA;
 	margin-bottom: 10px;
 	position: relative;
 	right: -90px;
@@ -620,3 +656,30 @@ circle{
 	top:-21px;
 }
 /* ***************************************END Education Details Styles******************************************* */
+
+
+
+/***************Shadows***************/
+.allShadow {
+-moz-box-shadow: 0 0 3px black;
+-webkit-box-shadow: 0 0 3px black;
+box-shadow: 0 0 5px grey;
+}
+
+.rightBottomShadow {
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
+}
+
+.innerShadow {
+   -moz-box-shadow:    inset 0 0 10px #000000;
+   -webkit-box-shadow: inset 0 0 10px #000000;
+   box-shadow:         inset 0 0 10px #000000;
+}
+
+.bottomShadow {
+	-webkit-box-shadow: 0 8px 6px -6px black;
+	   -moz-box-shadow: 0 8px 6px -6px black;
+	        box-shadow: 0 8px 6px -6px black;
+}

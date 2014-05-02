@@ -28,34 +28,8 @@
 
 //dataset.push({ "id": 8, "years": 2, "midpoint": 2012.5, "start" : 2010, "end" : 2015, "name":"Univeristy Of Massachusetts Dartmouth", "country":"USA", "state":"Massachusetts", "city":"New Bedford", "percentage":"90", "etype":"university" });
 
-dataset.sort(function(a, b){
-			 return b.years-a.years
-			})
-           
-
-			var circle_para_group = d3.select("#circleDetailsModal")
-			.selectAll("div")
-			.data(dataset)
-			.enter()
-			.append("div")
-			.attr("class","circleParaGroup");
 
 
-			var circle_details = circle_para_group
-			.append("div")
-			.attr("class","circleDetails")
-			.style("background-color",function(d){ 
-				if(d.years==1){
-					return c1;} else if(d.years==2){
-					return c2;} else if(d.years==3){
-					return c3;} else if(d.years==4){
-					return c4;} else{ return c5;  }
-			});
-		
-		var circle_details_para = circle_para_group
-			.append("p")
-			.attr("class","circleDetailsPara")
-			.text(function(d){ return d.name; });
 
 		
 //	var dataset = [ [3,2012.5,2011,2014], [2,2010,2009,2011] , [1,2009.5,2009,2010], [4,2008,2006,2010], [1,2006.5,2006,2007], [3,2007.5,2006,2009], [5,2012.5,2010,2015], []
@@ -523,7 +497,34 @@ dataset.sort(function(a, b){
 							
                                 
             
-            
+            dataset.sort(function(a, b){
+			 return b.years-a.years
+			})
+           
+
+			var circle_para_group = d3.select("#circleDetailsModal")
+			.selectAll("div")
+			.data(dataset)
+			.enter()
+			.append("div")
+			.attr("class","circleParaGroup");
+
+
+			var circle_details = circle_para_group
+			.append("div")
+			.attr("class","circleDetails")
+			.style("background-color",function(d){ 
+				if(d.years==1){
+					return c1;} else if(d.years==2){
+					return c2;} else if(d.years==3){
+					return c3;} else if(d.years==4){
+					return c4;} else{ return c5;  }
+			});
+		
+		var circle_details_para = circle_para_group
+			.append("p")
+			.attr("class","circleDetailsPara")
+			.text(function(d){ return d.name; });
             
             
             
@@ -563,22 +564,20 @@ dataset.sort(function(a, b){
 //                          ];
 					
 			var dataset = [
-			{ "id": 1, "years": 5, "midpoint": 1993.5, "start" : 1991, "end" : 1996, "name":"P.Obul Reddy Public School", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"40", "etype":"school" },
-			{ "id": 2, "years": 2, "midpoint": 1993, "start" : 1992, "end" : 1994, "name":"Treveni Talent School", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"60", "etype":"school" },
-			{ "id": 3, "years": 4, "midpoint": 2001, "start" : 1999, "end" : 2003, "name":"Trinity Public School", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"50", "etype":"school" },
-			{ "id": 4, "years": 3, "midpoint": 1997.5, "start" : 1996, "end" : 1999, "name":"Dav Public School", "country":"INDIA", "state":"Tamil Nadu", "city":"Chennai", "percentage":"60", "etype":"school" },
-			{ "id": 5, "years": 1, "midpoint": 1994.5, "start" : 1994, "end" : 1995, "name":"Sri Chaitanya Junior Kalasala", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"80", "etype":"college" },
-			{ "id": 6, "years": 1, "midpoint": 2001.5, "start" : 2001, "end" : 2002, "name":"KG Reddy College Of Engineering & Technology", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"70", "etype":"college" },
-			{ "id": 7, "years": 2, "midpoint": 1998, "start" : 1997, "end" : 1999, "name":"Univeristy Of Massachusetts Lowel", "country":"USA", "state":"Massachusetts", "city":"New Bedford", "percentage":"90", "etype":"university" },
-			{ "id": 8, "years": 3, "midpoint": 1994.5, "start" : 1993, "end" : 1996, "name":"Univeristy Of Massachusetts Lowel", "country":"USA", "state":"Massachusetts", "city":"New Bedford", "percentage":"90", "etype":"university" },{}
+			{ "id": 1, "years": 5, "midpoint": 1993.5, "start" : 1991, "end" : 1996, "name":"WIPRO", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"40", "etype":"school" },
+			{ "id": 2, "years": 2, "midpoint": 1993, "start" : 1992, "end" : 1994, "name":"INFOSYS", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"60", "etype":"school" },
+			{ "id": 3, "years": 4, "midpoint": 2001, "start" : 1999, "end" : 2003, "name":"TATA Groups", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"50", "etype":"school" },
+			{ "id": 4, "years": 3, "midpoint": 1997.5, "start" : 1996, "end" : 1999, "name":"RELIANCE", "country":"INDIA", "state":"Tamil Nadu", "city":"Chennai", "percentage":"60", "etype":"school" },
+			{ "id": 5, "years": 1, "midpoint": 1994.5, "start" : 1994, "end" : 1995, "name":"PRO SOFT", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"80", "etype":"college" },
+			{ "id": 6, "years": 1, "midpoint": 2001.5, "start" : 2001, "end" : 2002, "name":"AVID Technologies", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"70", "etype":"college" },
+			{ "id": 7, "years": 2, "midpoint": 1998, "start" : 1997, "end" : 1999, "name":"GOOGLE", "country":"USA", "state":"Massachusetts", "city":"Boston", "percentage":"90", "etype":"university" },
+			{ "id": 8, "years": 3, "midpoint": 1994.5, "start" : 1993, "end" : 1996, "name":"MICROSOFT", "country":"USA", "state":"Massachusetts", "city":"Boston", "percentage":"90", "etype":"university" }
 			
 		];
 					
 			
 					
-//			dataset.sort(function(a, b){
-//			 return b.years-a.years
-//			})
+
            
                     
                      //Update scale domains
@@ -698,6 +697,13 @@ dataset.sort(function(a, b){
 					
 					d3.select("body")
 					.select("div#yearSlider")
+					.transition()
+					.duration(1000)
+					.each("start",function(){
+						d3.select(this)
+						.style("opacity", .1);
+					})
+					.style("opacity", 1)
 					.style("display","block");
 					
 					d3.select("body")
@@ -730,11 +736,61 @@ dataset.sort(function(a, b){
 					
 					d3.select("body")
 					.select("#workCircle")
+					.transition()
+					.duration(500)
+					.each("start",function(){
+						d3.select(this)
+						.style("opacity", .1);
+					})
+					.style("opacity", 1)
 					.style("display","block");
 					
 					d3.select("body")
 					.select("#triRecLine")
 					.style("display","none");
+					
+					d3.select("body")
+					.select("#workTriRecLine")
+					.transition()
+					.duration(500)
+					.each("start",function(){
+						d3.select(this)
+						.style("opacity", .1);
+					})
+					.style("opacity", 1)
+					.style("display","block");
+					
+					dataset.sort(function(a, b){
+					return b.years-a.years
+					})
+					
+					d3.selectAll(".circleDetails")
+					.data(dataset)
+					.transition()
+					.duration(1000)
+					.each("start",function(){
+						d3.select(this)
+						.style("border-radius",50+"%");
+					})
+					.style("background-color",function(d){ 
+							if(d.years==1){
+								return c1;} else if(d.years==2){
+								return c2;} else if(d.years==3){
+								return c3;} else if(d.years==4){
+								return c4;} else{ return c5;  }
+						})
+					.style("border-radius",10+"%");
+
+					d3.selectAll(".circleDetailsPara")
+					.data(dataset)
+					.transition()
+					.duration(1000)
+					.each("start",function(){
+						d3.select(this)
+						.style("opacity", .1);
+					})
+					.style("opacity", 1)
+					.text(function(d){ return d.name; });
 					
 					
 					//Update X axis
@@ -794,15 +850,11 @@ dataset.sort(function(a, b){
 			{ "id": 4, "years": 4, "midpoint": 2008, "start" : 2006, "end" : 2010, "name":"Dav Public School", "country":"INDIA", "state":"Tamil Nadu", "city":"Chennai", "percentage":"60", "etype":"school" },
 			{ "id": 5, "years": 1, "midpoint": 2006.5, "start" : 2006, "end" : 2007, "name":"Sri Chaitanya Junior Kalasala", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"80", "etype":"college" },
 			{ "id": 6, "years": 3, "midpoint": 2007.5, "start" : 2006, "end" : 2009, "name":"KG Reddy College Of Engineering & Technology", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"70", "etype":"college" },
-			{ "id": 7, "years": 5, "midpoint": 2012.5, "start" : 2010, "end" : 2015, "name":"Univeristy Of Massachusetts Boston", "country":"USA", "state":"Massachusetts", "city":"New Bedford", "percentage":"90", "etype":"university" },
+			{ "id": 7, "years": 5, "midpoint": 2012.5, "start" : 2010, "end" : 2015, "name":"Univeristy Of Massachusetts Dartmouth", "country":"USA", "state":"Massachusetts", "city":"New Bedford", "percentage":"90", "etype":"university" },
 			{ "id": 8, "years": 2, "midpoint": 2013, "start" : 2012, "end" : 2014, "name":"Univeristy Of California", "country":"USA", "state":"California", "city":"Long Beach", "percentage":"70", "etype":"university" }
 			
 		];
-					
-//			dataset.sort(function(a, b){
-//			 return b.years-a.years
-//			})
-//           
+
 					
 //                 var dataset = [ [3,2012.5,2011,2014], [2,2010,2009,2011] , [1,2009.5,2009,2010], [4,2008,2006,2010], [1,2006.5,2006,2007], [3,2007.5,2006,2009], [5,2012.5,2010,2015], []
 //                          ];
@@ -929,6 +981,13 @@ dataset.sort(function(a, b){
 					d3.select("body")
 					.select("#percentageSlider")
 					.selectAll("p")
+					.transition()
+					.duration(1000)
+					.each("start",function(){
+						d3.select(this)
+						.style("opacity", .1);
+					})
+					.style("opacity",1)
 					.style("display","block");
 					
 					d3.select("body")
@@ -946,19 +1005,88 @@ dataset.sort(function(a, b){
 					
 					d3.select("body")
 					.select("#schoolCircle")
+					.transition()
+					.duration(500)
+					.each("start",function(){
+						d3.select(this)
+						.style("opacity", .1);
+					})
+					.style("opacity",1)
 					.style("display","block");
 					
 					d3.select("body")
 					.select("#collegeCircle")
+					.transition()
+					.duration(500)
+					.each("start",function(){
+						d3.select(this)
+						.style("opacity", .1);
+					})
+					.style("opacity",1)
 					.style("display","block");
 					
 					d3.select("body")
 					.select("#universityCircle")
+					.transition()
+					.duration(500)
+					.each("start",function(){
+						d3.select(this)
+						.style("opacity", .1);
+					})
+					.style("opacity",1)
 					.style("display","block");
 					
 					d3.select("body")
 					.select("#triRecLine")
+					.transition()
+					.duration(500)
+					.each("start",function(){
+						d3.select(this)
+						.style("opacity", .1);
+					})
+					.style("opacity",1)
 					.style("display","block");
+					
+					d3.select("body")
+					.select("#workTriRecLine")
+					.style("display","none");
+					
+					
+					
+					dataset.sort(function(a, b){
+					return b.years-a.years
+					})
+					
+					d3.selectAll(".circleDetails")
+					.data(dataset)
+					.transition()
+					.duration(1000)
+					.each("start",function(){
+						d3.select(this)
+						.style("border-radius",50+"%");
+					})
+					.style("background-color",function(d){ 
+							if(d.years==1){
+								return c1;} else if(d.years==2){
+								return c2;} else if(d.years==3){
+								return c3;} else if(d.years==4){
+								return c4;} else{ return c5;  }
+						})
+					.style("border-radius",10+"%");
+
+					d3.selectAll(".circleDetailsPara")
+					.data(dataset)
+					.transition()
+					.duration(1000)
+					.each("start",function(){
+						d3.select(this)
+						.style("opacity", .1);
+					})
+					.style("opacity", 1)
+					.text(function(d){ return d.name; });
+					
+					
+					
 					
             
 					//Update X axis
