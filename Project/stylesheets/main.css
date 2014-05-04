@@ -24,11 +24,12 @@ time, mark, audio, video {
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+footer, header, hgroup, menu, nav, section, img {
 	display: block;
 }
 body {
 	line-height: 1;
+	font-family: calibri;
 }
 ol, ul {
 	list-style: none;
@@ -54,25 +55,15 @@ table {
   #8D0D19 - burgundy
 */
 
-html { height: 100%; width: 100%; background-color: #F1F1F1; /*background: url(../images/light_grey.png) repeat #222;*/  }
-body { height: 100%; width: 100%; font-family: calibri;  margin-left: auto; margin-right: auto; }
 
-svg{
-	margin-top: 80px;
-	background-color: #F1F1F1
+/*	Layout Styles	*/
+html, body{
+	height: 100%;
 }
 
-
-
-/* Note: IE 5 & 6 won't understand min-height */
-#mainGraph {
-	min-height: 494px;
-	background: white;
-	padding-top: 2em;
-	padding-bottom: 2em;
-	padding-left:2em;
-	padding-right:20px;
-	background-color: white;
+#container{
+	min-height: 100%;
+	position: relative;
 }
 
 #header{ 
@@ -82,10 +73,7 @@ svg{
 }
 
 #header h1{
-	position: absolute;
 	padding-top: 15px; 
-	left: 540px;
-	width: 500px;
 	color:white; 
 	text-align:center; 
 	font-size:30px; 
@@ -93,34 +81,66 @@ svg{
 	letter-spacing: 10px;
 }
 
+#mainGraph {
+	width: 1070px;
+	margin-right: auto;
+	margin-left: auto;
+	background: white;
+}
+
+#footer { 
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	height: 40px;
+	padding-top: 16px; 
+	padding-bottom: 16px; 
+	text-align: center; 
+  	background: #252525;  
+	color: white; }
+
+#footer h1{
+	padding-top: 10px;  
+	color:white; 
+	text-align:center; 
+	font-size:15px; 
+	font-variant: small-caps; 
+	letter-spacing: 10px;	
+}
+
+
+
+svg{
+	margin-top: 80px;
+	background-color: #F1F1F1
+}
+
+
 #userInfo{
 	height:80px;
+	width: 100%;
 	background-color: #2BA3D4;
 }
 
-#userImgName{
-	position: relative;
-	top: 15px;
-	left: 600px;
-	width: 600px;
-}
-
 #userInfo img{
+	position: relative;
 	border-radius: 50%;
-	width: 50px;
 	height: 50px;
-	float: left;
-	margin-right: 20px;
+	width: 50px;
+	margin: auto;
+	right: 140px;
+	top: 15px;
 }
-
 
 #userInfo h2{
 	position: relative;
+	display: block;
 	color: white;
 	font-size: 25px;
-	float: left;
-	top: 10px;
-	
+	margin: auto;
+	width: 400px;
+	left: 110px;
+	top: -25px;
 }
 
 #buttons{
@@ -163,12 +183,6 @@ svg{
 	background: rgba(241, 118, 122, 1);
 }
 
-#footer { height: 2em; padding: 1em; text-align: center; 
-  background: #252525;  color: white; }
-
-#footer h1{
-padding-top: 10px;  color:white; text-align:center; font-size:15px; font-variant: small-caps; letter-spacing: 10px;	
-}
 
 
 /*My styles*/
