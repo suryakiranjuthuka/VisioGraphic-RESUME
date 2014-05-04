@@ -23,7 +23,6 @@
 			{ "id": 6, "years": 3, "midpoint": 2007.5, "start" : 2006, "end" : 2009, "name":"KG Reddy College Of Engineering & Technology", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"70", "etype":"college" },
 			{ "id": 7, "years": 5, "midpoint": 2012.5, "start" : 2010, "end" : 2015, "name":"Univeristy Of Massachusetts Dartmouth", "country":"USA", "state":"Massachusetts", "city":"New Bedford", "percentage":"90", "etype":"university" },
 			{ "id": 8, "years": 2, "midpoint": 2013, "start" : 2012, "end" : 2014, "name":"Univeristy Of California", "country":"USA", "state":"California", "city":"Long Beach", "percentage":"70", "etype":"university" }
-			
 		];
 
 //dataset.push({ "id": 8, "years": 2, "midpoint": 2012.5, "start" : 2010, "end" : 2015, "name":"Univeristy Of Massachusetts Dartmouth", "country":"USA", "state":"Massachusetts", "city":"New Bedford", "percentage":"90", "etype":"university" });
