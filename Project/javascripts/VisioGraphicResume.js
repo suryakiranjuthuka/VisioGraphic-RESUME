@@ -1,6 +1,6 @@
 //SVG WIDTH & HEIGHT
-		var w = 600;
-		var h = 450;
+		var w = 650;
+		var h = 525;
 		var padding = 30;
 		
 		//Variables for setting circle colors according to radius
@@ -482,7 +482,7 @@
                             .attr("cx", function(d){ return Xscale(d.years); })
                             .attr("cy", function(d){ return Yscale(d.midpoint); })
                             .attr("r", function(d){
-								return (d.years*10);
+								return (d.years*11);
                             })
                             .attr("fill",function(d){ 
                             if(d.years==1){
