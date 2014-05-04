@@ -81,13 +81,6 @@ html, body{
 	letter-spacing: 10px;
 }
 
-#mainGraph {
-	width: 1070px;
-	margin-right: auto;
-	margin-left: auto;
-	background: white;
-}
-
 #footer { 
 	position: absolute;
 	bottom: 0px;
@@ -107,14 +100,6 @@ html, body{
 	font-variant: small-caps; 
 	letter-spacing: 10px;	
 }
-
-
-
-svg{
-	margin-top: 80px;
-	background-color: #F1F1F1
-}
-
 
 #userInfo{
 	height:80px;
@@ -143,12 +128,21 @@ svg{
 	top: -25px;
 }
 
-#buttons{
-	position: absolute; 
+#sideBar{ /******Container*******/
 	width: 240px;
-	left: 1250px;
-	padding-bottom: 10px;
+	margin-top: 100px;
+	margin-right: 20px;
+	position: absolute;
+	right: 0;
+}
+
+#buttons{	/* Inner Container of #sideBar */
+	width: 240px;
+	height: 50px;
+	padding-bottom: 20px;
 	border-bottom: 1px solid lightgrey;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .buttonEducation, .buttonWork{
@@ -183,44 +177,11 @@ svg{
 	background: rgba(241, 118, 122, 1);
 }
 
-
-
-/*My styles*/
-
-#svg1{
-	position: absolute;
-	top: 100px;
-	left: 650px;
-	background-color : transparent;
-}
-
-
-.axis path {
-	fill: none;
-/*	stroke:#FF534E;*/
-	stroke:none;
-	shape-rendering: crispEdges;
-}
-
-.axis line {
-	fill: none;
-	stroke:white;
-	shape-rendering: crispEdges;
-}
-.axis text {
-	font-family: sans-serif;
-	font-size: 11px;
-	fill: white;
-}
-
-#circleDetailsModal{ /* Container */
-	position: absolute;
-	float: right;
-	margin-top: 30px;
-	margin-right: 30px;	
+#circleDetailsModal{ /* Inner Container of #sideBar */
+	margin-top: 20px;
 	width: 200px;
-	left: 1260px;
-	top: 220px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .circleParaGroup{
@@ -248,30 +209,48 @@ svg{
 }
 
 
-
-/*
-circle:hover{
-	fill:turquoise;
+/*My styles*/
+#mainGraph {
+	width: 1200px;
+	margin-right: auto;
+	margin-left: auto;
+	background: white;
 }
 
-circle{
-	-moz-transition: all 0.3s;
-	-o-transition: all 0.3s;
-	-webkit-transition: all 0.3s;
-	transition: all 0.3s;
+svg{
+	background-color: #F1F1F1
 }
-*/
+
+#svg1{
+	background-color : transparent;
+}
+
+
+.axis path {
+	fill: none;
+/*	stroke:#FF534E;*/
+	stroke:none;
+	shape-rendering: crispEdges;
+}
+
+.axis line {
+	fill: none;
+	stroke:white;
+	shape-rendering: crispEdges;
+}
+.axis text {
+	font-family: sans-serif;
+	font-size: 11px;
+	fill: white;
+}
 
 
 /* ***************************************START Education Details Styles******************************************* */
 #educationDetails{
-	width: 1080px;
+	width: 1200px;
 	height: 400px;
 /*	background-color: #D9FFB4;*/
 	background: url(../images/grey.png) repeat #222;
-	position: absolute;
-	top: 205px;
-	left: 139px;
 	border-radius: 1%;
 /*	border:1px solid lightgrey;*/
 }
