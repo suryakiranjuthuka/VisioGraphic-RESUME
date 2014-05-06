@@ -457,10 +457,11 @@ svg{
 	position:relative; 
 	width:20px;
 	height:20px;
-	top:-10px; 
+	top:-11px; 
 	right:90px; 
 	border-radius:50%; 
 	background-color:#95AE00;
+	z-index: 2;
 }
 
 #schoolCircle span{
@@ -469,16 +470,18 @@ svg{
 	top:-79px; 
 	right:-7px; 
 	font-size:12px;
+	z-index: 2;
 }
 
 #collegeCircle{
 	position:relative; 
 	width:20px; 
 	height:20px; 
-	top:10px; 
+	top:9px; 
 	right:90px; 
 	border-radius:50%; 
 	background-color:#FFBE09;
+	z-index: 2;
 }
 
 #collegeCircle span{
@@ -487,6 +490,7 @@ svg{
 	top:-59px; 
 	right:-6px; 
 	font-size:12px;
+	z-index: 2;
 }
 
 #universityCircle{
@@ -497,6 +501,7 @@ svg{
 	right:90px; 
 	border-radius:50%; 
 	background-color:#32A6DA;
+	z-index: 2;
 }
 
 #universityCircle span{
@@ -505,6 +510,7 @@ svg{
 	top:-39px; 
 	right:-6px; 
 	font-size:12px;
+	z-index: 2;
 }
 
 #workCircle{
