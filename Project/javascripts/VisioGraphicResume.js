@@ -1,6 +1,6 @@
 //SVG WIDTH & HEIGHT
-		var w = 650;
-		var h = 525;
+		var w = 700;
+		var h = 550;
 		var padding = 30;
 		
 		//Variables for setting circle colors according to radius
@@ -61,7 +61,8 @@
 		//Yaxis
 		var Yaxis = d3.svg.axis()
 						.scale(Yscale)
-						.orient("left");
+						.orient("left")
+						.ticks(dataset.length*2);
 
 		var svg = d3.select("body")
 					.select("#mainGraph")
@@ -84,7 +85,8 @@
                     .attr("y1",function(d){ return Yscale(d.end); })
                     .attr("x2",function(d){ return Xscale(d.years-(d.years/8)); })
                     .attr("y2",function(d){ return Yscale(d.end); })
-                    .attr("stroke","teal");
+                    .attr("stroke","teal")
+		  			.attr("stroke-width",1.5+"px");
             
             svg.selectAll("#tcl line") //Top Cross Line
                     .data(dataset)
@@ -95,7 +97,8 @@
                     .attr("y1",function(d){ return Yscale(d.end); })
                     .attr("x2",function(d){ return Xscale(d.years); })
                     .attr("y2",function(d){ return Yscale(d.midpoint); })
-                    .attr("stroke","teal");
+                    .attr("stroke","teal")
+		  			.attr("stroke-width",1.5+"px");
             
             
             svg.selectAll("#bl line") //Bottom Line
@@ -107,7 +110,8 @@
                     .attr("y1",function(d){ return Yscale(d.start); })
                     .attr("x2",function(d){ return Xscale(d.years-(d.years/8)); })
                     .attr("y2",function(d){ return Yscale(d.start); })
-                    .attr("stroke","teal");
+                    .attr("stroke","teal")
+		  			.attr("stroke-width",1.5+"px");
             
             
             svg.selectAll("#bcl line") //Bottom Cross Line
@@ -119,7 +123,8 @@
                     .attr("y1",function(d){ return Yscale(d.start); })
                     .attr("x2",function(d){ return Xscale(d.years); })
                     .attr("y2",function(d){ return Yscale(d.midpoint); })
-                    .attr("stroke","teal");
+                    .attr("stroke","teal")
+		  			.attr("stroke-width",1.5+"px");
             
             
             
@@ -191,7 +196,7 @@
 								.attr("x2",function(d){ return Xscale(window.a-(window.a/8)); })
 								.attr("y2",function(d){ return Yscale(window.d); })
 								.attr("stroke","#E53542")
-								.attr("stroke-width",2)
+								.attr("stroke-width",2.3)
 								.style("pointer-events", "none");
 								
 								svg.append("line") //Top Cross Line Selector
@@ -201,7 +206,7 @@
 								.attr("x2",function(d){ return Xscale(window.a); })
 								.attr("y2",function(d){ return Yscale(window.b); })
 								.attr("stroke","#E53542")
-								.attr("stroke-width",2)
+								.attr("stroke-width",2.3)
 								.style("pointer-events", "none");
 								
 								svg.append("line") //Bottom Line Selector
@@ -211,7 +216,7 @@
 								.attr("x2",function(d){ return Xscale(window.a-(window.a/8)); })
 								.attr("y2",function(d){ return Yscale(window.c); })
 								.attr("stroke","#E53542")
-								.attr("stroke-width",2)
+								.attr("stroke-width",2.3)
 								.style("pointer-events", "none");
 								
 								svg.append("line") //Bottom Cross Line Selector
@@ -221,7 +226,7 @@
 								.attr("x2",function(d){ return Xscale(window.a); })
 								.attr("y2",function(d){ return Yscale(window.b); })
 								.attr("stroke","#E53542")
-								.attr("stroke-width",2)
+								.attr("stroke-width",2.3)
 								.style("pointer-events", "none");
 								
 							})
@@ -482,7 +487,7 @@
                             .attr("cx", function(d){ return Xscale(d.years); })
                             .attr("cy", function(d){ return Yscale(d.midpoint); })
                             .attr("r", function(d){
-								return (d.years*11);
+								return (d.years*12);
                             })
                             .attr("fill",function(d){ 
                             if(d.years==1){
@@ -606,7 +611,7 @@
 //                        .attr("cx", function(d){ return Xscale(d[0]); })
 //                            .attr("cy", function(d){ return Yscale(d[1]); })
                             .attr("r", function(d){ 
-                            return (d.years*10);
+                            return (d.years*12);
                             })
                             .attr("fill",function(d){ 
                             if(d.years==1){
@@ -885,7 +890,7 @@
 //                        .attr("cx", function(d){ return Xscale(d[0]); })
 //                            .attr("cy", function(d){ return Yscale(d[1]); })
                             .attr("r", function(d){ 
-                            return (d.years*10);
+                            return (d.years*12);
                             })
                             .attr("fill",function(d){ 
                             if(d.years==1){
