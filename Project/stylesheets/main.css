@@ -67,7 +67,7 @@ html, body{
 }
 
 #header{ 
-	height: 60px;  
+	height: 50px;  
 	width: 100%;
 	background: #000000;
 }
@@ -76,7 +76,7 @@ html, body{
 	padding-top: 15px; 
 	color:white; 
 	text-align:center; 
-	font-size:30px; 
+	font-size:24px; 
 	font-variant: small-caps; 
 	letter-spacing: 10px;
 }
@@ -85,7 +85,7 @@ html, body{
 	position: absolute;
 	bottom: 0px;
 	width: 100%;
-	height: 40px;
+	height: 25px;
 	padding-top: 16px; 
 	padding-bottom: 16px; 
 	text-align: center; 
@@ -96,13 +96,13 @@ html, body{
 	padding-top: 10px;  
 	color:white; 
 	text-align:center; 
-	font-size:15px; 
+	font-size:12px; 
 	font-variant: small-caps; 
-	letter-spacing: 10px;	
+	letter-spacing: 6px;	
 }
 
 #userInfo{
-	height:80px;
+	height:60px;
 	width: 100%;
 	background-color: #2BA3D4;
 }
@@ -110,26 +110,26 @@ html, body{
 #userInfo img{
 	position: relative;
 	border-radius: 50%;
-	height: 50px;
-	width: 50px;
+	height: 40px;
+	width: 40px;
 	margin: auto;
-	right: 140px;
-	top: 15px;
+	right: 130px;
+	top: 10px;
 }
 
 #userInfo h2{
 	position: relative;
 	display: block;
 	color: white;
-	font-size: 25px;
+	font-size: 20px;
 	margin: auto;
 	width: 400px;
 	left: 110px;
-	top: -25px;
+	top: -20px;
 }
 
 #sideBar{ /******Container*******/
-	width: 240px;
+	width: 175px;
 	margin-top: 100px;
 	margin-right: 20px;
 	position: absolute;
@@ -137,9 +137,9 @@ html, body{
 }
 
 #buttons{	/* Inner Container of #sideBar */
-	width: 240px;
-	height: 50px;
-	padding-bottom: 20px;
+	width: 175px;
+	height: 30px;
+	padding-bottom: 15px;
 	border-bottom: 1px solid lightgrey;
 	margin-left: auto;
 	margin-right: auto;
@@ -151,8 +151,7 @@ html, body{
 	text-align: center;
 	font-size: 16px;
 	color: white;
-	padding: 10px 20px;
-	margin: 18px 0 0 20px;
+	padding: 8px 16px;
 	text-decoration: none;
 	-webkit-transition: background 0.3s ease;
 	-moz-transition: background 0.3s ease;
@@ -163,6 +162,7 @@ html, body{
 
 .buttonEducation {
 	background: rgba(71, 186, 255, 0.8);
+	font-size: 14px;
 }
 
 .buttonEducation:hover {
@@ -171,6 +171,8 @@ html, body{
 
 .buttonWork {
 	background: rgba(241, 118, 122, 0.8);
+	font-size: 14px;
+	margin-left: 15px;
 }
 
 .buttonWork:hover {
@@ -178,21 +180,21 @@ html, body{
 }
 
 #circleDetailsModal{ /* Inner Container of #sideBar */
-	margin-top: 20px;
-	width: 200px;
+	margin-top: 15px;
+	width: 169px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
 .circleParaGroup{
-	height: 50px;
+	height: 41px;
 }
 
 .circleDetails { /* Small Circles */
 	float: left;
 	border-radius: 10%;
-	width: 20px;
-	height: 20px;
+	width: 17px;
+	height: 17px;
 	background-color: grey;
 }
 
@@ -201,31 +203,32 @@ html, body{
 	float: left;
 	color: grey;
 	padding-left: 7px;
-	width: 173px;
-}
-
-.circleDetailsParaEach{
-	margin-top: 16px;
+	width: 145px;
+	font-size: 13px;
 }
 
 
-/*My styles*/
+/* Note: IE 5 & 6 won't understand min-height */
 #mainGraph {
-	width: 1320px;
+	width: 1100px;
 	margin-right: auto;
 	margin-left: auto;
 	margin-top: 100px;
 	background: white;
 	position: relative;
-	background: url(../images/grey.png) repeat #222;
+	background: url(../images/grey.png);
 	border-radius: 1%;
-	height: 508px;
+	height: 410px;
+	right: 70px;
 }
+
+
+/*My styles*/
 
 svg{
 	position: absolute;
 	background-color : transparent;
-	right: 0px;
+	right: -22px;
 	top: -21px;
 }
 
@@ -250,15 +253,16 @@ svg{
 }
 .xaxis text {
 	font-family: sans-serif;
-	font-size: 11px;
+	font-size: 10px;
 	fill: none;
 }
 
 .yaxis text {
 	font-family: sans-serif;
-	font-size: 12px;
+	font-size: 10px;
 	fill: white;
 }
+
 
 
 /* ***************************************START Education Details Styles******************************************* */
@@ -266,27 +270,27 @@ svg{
 	position: absolute;
 	width: 577px;
 	height: 400px;
-	left: 16px;
+	right: 509px;
 /*	background-color: #D9FFB4;*/
 /*	border:1px solid lightgrey;*/
 }
 
 #yAxisBackground{
-	height: 508px;
-	width: 50px;
+	height: 410px;
+	width: 43px;
 	background-color: grey;
 /*	background: url(../images/grey_wash_wall.png) repeat #222;*/
 	position: absolute;
-	right: 660px;
+	right: 538px;
 	top:0;
 }
 
 #cover1axis{
 	position: absolute;
 	width:40px;
-	height:35px;
+	height:30px;
 	background-color: grey;
-	right: 660px;
+	right: 538px;
 	z-index: 100;
 }
 
@@ -296,10 +300,9 @@ svg{
 	height:35px;
 	background-color: grey;
 	bottom: 0px;
-	right: 660px;
+	right: 538px;
 	z-index: 100;
 }
-
 .percentageTicks{
 	position: relative;
 	float: left;
@@ -711,9 +714,3 @@ box-shadow: 0 0 5px grey;
 	   -moz-box-shadow: 0 8px 6px -6px black;
 	        box-shadow: 0 8px 6px -6px black;
 }
-
-
-
-
-
-
