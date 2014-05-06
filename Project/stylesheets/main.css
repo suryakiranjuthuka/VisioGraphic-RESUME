@@ -281,7 +281,6 @@ svg{
 	height: 410px;
 	width: 43px;
 	background-color: grey;
-/*	background: url(../images/grey_wash_wall.png) repeat #222;*/
 	position: absolute;
 	right: 538px;
 	top:0;
@@ -736,7 +735,3 @@ box-shadow: 0 0 5px grey;
 	   -moz-box-shadow: 0 8px 6px -6px black;
 	        box-shadow: 0 8px 6px -6px black;
 }
-
-
-
-
