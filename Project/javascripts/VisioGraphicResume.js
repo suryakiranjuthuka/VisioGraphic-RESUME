@@ -24,6 +24,11 @@
 			{ "id": 7, "years": 5, "midpoint": 2012.5, "start" : 2010, "end" : 2015, "name":"Univeristy Of Massachusetts Dartmouth", "country":"USA", "state":"Massachusetts", "city":"New Bedford", "percentage":"90", "etype":"university" },
 			{ "id": 8, "years": 2, "midpoint": 2013, "start" : 2012, "end" : 2014, "name":"Univeristy Of California", "country":"USA", "state":"California", "city":"Long Beach", "percentage":"70", "etype":"university" }
 			
+			
+//			,{ "id": 9, "years": 1, "midpoint": 2014.5, "start" : 2014, "end" : 2015, "name":"CIS 602 Class", "country":"USA", "state":"Massachusetts", "city":"Dartmouth", "percentage":"70", "etype":"university" }
+			
+			
+			
 		];
 
 //dataset.push({ "id": 8, "years": 2, "midpoint": 2012.5, "start" : 2010, "end" : 2015, "name":"Univeristy Of Massachusetts Dartmouth", "country":"USA", "state":"Massachusetts", "city":"New Bedford", "percentage":"90", "etype":"university" });
@@ -63,7 +68,7 @@
 		var Yaxis = d3.svg.axis()
 						.scale(Yscale)
 						.orient("left")
-						.ticks(dataset.length*2);
+						.ticks(dataset.length*1.2);
 
 		var svg = d3.select("body")
 					.select("#mainGraph")
