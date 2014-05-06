@@ -3,30 +3,32 @@
     <head>
         <meta charset="utf-8">
         <title>VisioGraphic Resume</title>
+		<link rel="shortcut icon" href="images/favicon_final1-20140504-favicon.ico" >
 		<link rel="stylesheet" type="text/css" href="stylesheets/main.css"/>
         <script type="text/javascript" src="d3/d3.min.js"></script>
 	</head>
 	
 <body>
+	<div id="container">
+		
 	<header id="header">
 		<h1>VisioGraphic Resume</h1>
 	</header>
 	
 	<section id="userInfo" >
-		<div id="userImgName">
-			<img src="images/default.png">
-			<h2>Surya Kiran Juthuka</h2>
-		</div>
+		<img src="images/default.png">
+		<h2>Surya Kiran Juthuka</h2>
 	</section>
 	
-	
+	<section id="sideBar">
+			<div id="buttons">
+				<div id="work" class="buttonEducation">Work</div>
+				<div id="education" class="buttonWork">Education</div>
+			</div>
+			<div id="circleDetailsModal"></div>
+	</section>
+		
 	<section id="mainGraph">
-		
-		<div id="buttons">
-			<div id="work" class="buttonEducation">Work</div>
-			<div id="education" class="buttonWork">Education</div>
-		</div>
-		
 		<div id="educationDetails">
 			
 			<div id="percentageSlider"></div>
@@ -40,10 +42,10 @@
 			</div>
 			
 			<div id="triRecContainer">
-				<div id="leftTri"></div>
-				<div id="educationNameRect" class="bottomShadow"><p></p></div>
 				<div id="triRecLine"></div>
 				<div id="workTriRecLine"></div>
+				<div id="leftTri"></div>
+				<div id="educationNameRect" class="bottomShadow"><p></p></div>
 				<div id="schoolCircle" class="allShadow"><span>S</span></div>
 				<div id="collegeCircle" class="allShadow"><span>C</span></div>
 				<div id="universityCircle" class="allShadow"><span>U</span></div>
@@ -72,18 +74,17 @@
 				<div id="eCountryCrossLine"></div>
 				<div id="eCountry" class="allShadow"><p></p></div>
 			</div>
-			
-			<div id="yAxisBackground" class="allShadow"></div>
-			
 		</div>
-		
-		<div id="circleDetailsModal"></div>
-		
+		<div id="yAxisBackground" class="allShadow"></div>
+		<div id="cover1axis"></div>
+		<div id="cover2axis"></div>
 	</section> 
        
     <footer id="footer">
 		<h1>&copy;2014  Surya Kiran | Satish Kumar  -  VisoGraphic Resume</h1>
 	</footer> 
+	
+	</div><!--End of Container-->
 </body>
 </html>
 

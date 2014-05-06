@@ -62,7 +62,8 @@
 		//Yaxis
 		var Yaxis = d3.svg.axis()
 						.scale(Yscale)
-						.orient("left");
+						.orient("left")
+						.ticks(dataset.length*2);
 
 		var svg = d3.select("body")
 					.select("#mainGraph")
@@ -304,17 +305,17 @@
 								
 								d3.select("#triRecLine")
 								.style("transform",function(){
-									   	if(window.etype == "school") return "rotate("+28+"deg)"; else
+									   	if(window.etype == "school") return "rotate("+30+"deg)"; else
 										if(window.etype == "college") return "rotate("+0+"deg)"; else
 										if(window.etype == "university") return "rotate("+152+"deg)";
 									   })
 								.style("-ms-transform",function(){
-									   	if(window.etype == "school") return "rotate("+28+"deg)"; else
+									   	if(window.etype == "school") return "rotate("+30+"deg)"; else
 										if(window.etype == "college") return "rotate("+0+"deg)"; else
 										if(window.etype == "university") return "rotate("+152+"deg)";
 									   })
 								.style("-webkit-transform",function(){
-									   	if(window.etype == "school") return "rotate("+28+"deg)"; else
+									   	if(window.etype == "school") return "rotate("+30+"deg)"; else
 										if(window.etype == "college") return "rotate("+0+"deg)"; else
 										if(window.etype == "university") return "rotate("+152+"deg)";
 									   })
@@ -696,6 +697,11 @@
 					
 					
 					d3.select("body")
+					.select("#percentageSlider")
+					.style("display","none");
+					
+					
+					d3.select("body")
 					.select("div#yearSlider")
 					.transition()
 					.duration(1000)
@@ -705,11 +711,6 @@
 					})
 					.style("opacity", 1)
 					.style("display","block");
-					
-					d3.select("body")
-					.select("#percentageSlider")
-					.selectAll("p")
-					.style("display","none");
 					
 					
 					d3.select("body")
@@ -980,7 +981,6 @@
 					
 					d3.select("body")
 					.select("#percentageSlider")
-					.selectAll("p")
 					.transition()
 					.duration(1000)
 					.each("start",function(){
