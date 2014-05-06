@@ -322,10 +322,14 @@ svg{
 	color: grey;
 }
 
+#yearSlider{
+	position: relative;
+	left: 465px;
+}
 .yearTicks{
 	position: relative;
 	float: left;
-	width: .5px;
+	width: 1px;
 	height: 10px;
 	margin-left: 45.5px;
 	background-color: rgb(180, 180, 180);
@@ -351,7 +355,7 @@ svg{
 
 #hexLine{
 	width: 159px;
-	height: 1px;
+	height: 1.2px;
 	background-color: rgb(180, 180, 180);
 	transform: rotate(90deg);
 	-moz-transform: rotate(90deg);
@@ -360,6 +364,7 @@ svg{
 	position:relative;
 	top:-40px;
 	right:60px;
+	z-index: 1;
 }
 
 #hexTop{
@@ -367,12 +372,16 @@ svg{
 	border-bottom: 25px solid rgb(180, 180, 180);
 	border-left: 20px solid transparent;
 	border-right: 20px solid transparent;
+	position: relative;
+	z-index: 2;
 }
 
 #hexMiddle{
 	width: 40px;
 	height: 35px;
 	background-color: rgb(180, 180, 180);
+	position: relative;
+	z-index: 2;
 }
 
 #hexMiddle p{
@@ -380,6 +389,8 @@ svg{
 	padding-top:5px; 
 	padding-left:12px; 
 	font-size:25px; 
+	position: relative;
+	z-index: 2;
 }
 
 #hexBottom{
@@ -387,6 +398,8 @@ svg{
 	border-top: 25px solid rgb(180, 180, 180);
 	border-left: 20px solid transparent;
 	border-right: 20px solid transparent;
+	position: relative;
+	z-index: 2;
 }
 
 #triRecContainer{	/* ***********Triangle Container*********** */
@@ -403,7 +416,8 @@ svg{
 	border-right: 50px solid #EA5460;
 	border-bottom: 40px solid transparent;
 	float: left;
-	
+	position: relative;
+	z-index: 10000;
 }
 
 #educationNameRect{
@@ -411,11 +425,13 @@ svg{
 	height:80px;
 	background-color:#EA5460;
 	float: left;
+	position: relative;
+	z-index: 100;
 }
 
 #triRecLine{
 	width: 90px;
-	height: 1px;
+	height: 1.2px;
 	background-color: rgb(180, 180, 180);
 	position:relative;
 	top:20px;
@@ -423,17 +439,19 @@ svg{
 	transform: rotate(28deg);
 	-moz-transform: rotate(28deg);
 	-ms-transform: rotate(28deg);
-	-webkit-transform: rotate(28deg);
+	-webkit-transform: rotate(30deg);
+	z-index: 1;
 }
 
 #workTriRecLine{
 	width: 90px;
-	height: 1px;
+	height: 1.2px;
 	background-color: rgb(180, 180, 180);
 	position:relative;
 	top:40px;
 	right:80px;
 	display: none;
+	z-index: 1;
 }
 
 #schoolCircle{
@@ -499,14 +517,16 @@ svg{
 	border-radius:50%; 
 	background-color:#FFBE09;
 	display: none;
+	z-index: 2;
 }
 
 #workCircle span{
 	color:white; 
 	position:relative; 
-	top:-78px; 
-	right:-5px;
+	top:-80px; 
+	right:-4px;
 	font-size:12px;
+	z-index: 2;
 }
 
 #yearToYearContainer{	/* *******Year to Year Container******* */
@@ -550,7 +570,7 @@ svg{
 
 #yTyLine{
 	width: 60px;
-	height: 1px;
+	height: 1.2px;
 	background-color: rgb(180, 180, 180);
 	position:relative;
 	top:25px;
@@ -568,7 +588,7 @@ svg{
 
 #eCityLine{
 	width: 165px;
-	height: 1px;
+	height: 1.2px;
 	background-color: rgb(180, 180, 180);
 	position:relative;
 	top:12px;
@@ -577,7 +597,7 @@ svg{
 
 #eCityCrossLine{
 	width: 15px;
-	height: 1px;
+	height: 1.2px;
 	background-color: rgb(180, 180, 180);
 	position:relative;
 	top:17px;
@@ -609,7 +629,7 @@ svg{
 
 #eStateLine{
 	width: 134px;
-	height: 1px;
+	height: 1.2px;
 	background-color: rgb(180, 180, 180);
 	position:relative;
 	top:2px;
@@ -618,7 +638,7 @@ svg{
 
 #eStateCrossLine{
 	width: 15px;
-	height: 1px;
+	height: 1.2px;
 	background-color: rgb(180, 180, 180);
 	position:relative;
 	top:7px;
@@ -650,7 +670,7 @@ svg{
 
 #eCountryLine{
 	width: 89px;
-	height: 1px;
+	height: 1.2px;
 	background-color: rgb(180, 180, 180);
 	position:relative;
 	top:-5px;
@@ -659,7 +679,7 @@ svg{
 
 #eCountryCrossLine{
 	width: 15px;
-	height: 1px;
+	height: 1.4px;
 	background-color: rgb(180, 180, 180);
 	position:relative;
 	top:0px;
@@ -716,3 +736,7 @@ box-shadow: 0 0 5px grey;
 	   -moz-box-shadow: 0 8px 6px -6px black;
 	        box-shadow: 0 8px 6px -6px black;
 }
+
+
+
+
