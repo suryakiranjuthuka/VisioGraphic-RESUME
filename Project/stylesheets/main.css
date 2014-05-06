@@ -213,6 +213,7 @@ html, body{
 #mainGraph {
 	width: 1200px;
 	margin-right: auto;
+	padding:16px;
 	margin-left: auto;
 	margin-top: 100px;
 	background: white;
@@ -225,8 +226,8 @@ html, body{
 svg{
 	position: absolute;
 	background-color : transparent;
-	right: -33px;
-	top: -37px;
+	right: -15px;
+	top: -21px;
 }
 
 
@@ -237,12 +238,24 @@ svg{
 	shape-rendering: crispEdges;
 }
 
-.axis line {
+.xaxis line {
+	fill: none;
+	stroke:none;
+	shape-rendering: crispEdges;
+}
+
+.yaxis line {
 	fill: none;
 	stroke:white;
 	shape-rendering: crispEdges;
 }
-.axis text {
+.xaxis text {
+	font-family: sans-serif;
+	font-size: 11px;
+	fill: none;
+}
+
+.yaxis text {
 	font-family: sans-serif;
 	font-size: 11px;
 	fill: white;
@@ -252,19 +265,21 @@ svg{
 /* ***************************************START Education Details Styles******************************************* */
 #educationDetails{
 	position: absolute;
-	width: 1200px;
+	width: 577px;
 	height: 400px;
+	left: 16px;
 /*	background-color: #D9FFB4;*/
 /*	border:1px solid lightgrey;*/
 }
 
 #yAxisBackground{
-	height: 452px;
+	height: 484px;
 	width: 46px;
 	background-color: grey;
 /*	background: url(../images/grey_wash_wall.png) repeat #222;*/
 	position: absolute;
-	left: 577px;
+	left: 593px;
+	top:0;
 }
 
 .percentageTicks{
@@ -690,10 +705,6 @@ box-shadow: 0 0 5px grey;
 
         .drop-shadow {
             width:40%;
-/*
-            padding:1em;
-            margin:2em 10px 4em;
-*/
             background:#fff;
             -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
             -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
