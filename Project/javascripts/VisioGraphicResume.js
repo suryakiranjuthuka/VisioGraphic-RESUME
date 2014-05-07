@@ -1,3 +1,26 @@
+
+d3.select("body")
+.select("#button1")
+.on("click",function(){
+	d3.select("#surya")
+	.attr("value","kiran")
+});
+
+d3.select("body")
+.select("#button2")
+.on("click",function(){
+	d3.select("#surya")
+	.attr("value","kran")
+});
+
+d3.select("body")
+.select("#button3")
+.on("click",function(){
+	d3.select("#surya")
+	.attr("value","kan")
+});
+
+
 //SVG WIDTH & HEIGHT
 		var w = 600;
 		var h = 450;
