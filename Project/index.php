@@ -101,9 +101,9 @@ if(isset($_POST['update_advisor_info'])){
 	
 	
 	
-	<input id="button1" type="button" value="Menu-1" language="javascript" onclick="return ClickMenu(this);" />
-<input id="button2" type="button" value="Menu-2" language="javascript" onclick="return ClickMenu(this);" />
-<input id="button3" type="button" value="Menu-3" language="javascript" onclick="return ClickMenu(this);" />
+	<input class="button1" type="button" value="Menu-1" language="javascript" onclick="return ClickMenu(this);" />
+<input class="button2" type="button" value="Menu-2" language="javascript" onclick="return ClickMenu(this);" />
+<input class="button3" type="button" value="Menu-3" language="javascript" onclick="return ClickMenu(this);" />
 
 
 <form action="index.php"  id="test_test" method="post">
