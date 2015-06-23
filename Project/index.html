@@ -6,9 +6,27 @@
 		<link rel="shortcut icon" href="images/favicon_final1-20140504-favicon.ico" >
 		<link rel="stylesheet" type="text/css" href="stylesheets/main.css"/>
         <script type="text/javascript" src="d3/d3.min.js"></script>
+        <script type="text/javascript" src="javascripts/jquery-2.0.2.min.js"></script>
 	</head>
 	
 <body>
+    <div id="overlay"></div>
+    <div id="DIntroContainer">
+        <div id="DIntro">
+            <h1>Welcome to VisioGraphic Resume!</h1>
+            <p>This is  sample resume represented in an interactive timeline graph.</p>
+            <div id="accept" class="DButton">Give Me a Tour</div>
+            <div id="cancel" class="DButton">No Thanks</div>
+        </div>
+    </div>
+    <div id="D7Container">
+        <div id="D7">
+            <h2>Thanks for your time!</h2>
+            <p>Enjoy the VisioGraphic Resume!</p>
+            <div id="D7Finish" class="DButton">FINISH</div>
+        </div>
+    </div>
+    
 	<div id="container">
 		
 	<header id="header">
@@ -22,13 +40,66 @@
 	
 	<section id="sideBar">
 			<div id="buttons">
-				<div id="work" class="buttonEducation">Work</div>
-				<div id="education" class="buttonWork">Education</div>
+				<div id="work" class="buttonWork">Work</div>
+				<div id="education" class="buttonEducation">Education</div>
 			</div>
 			<div id="circleDetailsModal"></div>
 	</section>
 		
 	<section id="mainGraph">
+<!-- START  Html for Dynamic Guide    -->
+        
+        <div id="D1">
+            <h2>This graph shows a timeline of a person’s education and career.</h2>
+            <div id="D1Next" class="DButton">NEXT</div>
+        </div>
+        
+        <div id="D2">
+            <h2>On the right, there is a list of places where this person has studied.</h2>
+            <p>For now, just note that these institutions are color-coded.</p>
+            <div id="D2Next" class="DButton">NEXT</div>
+        </div>
+        
+        <div id="D3">
+            <h2>In the graph, the scale represents years of study.</h2>
+            <p>In this particular instance, the scale ranges from 2006 to 2015.</p>
+            <div id="D3Next" class="DButton">NEXT</div>
+        </div>
+        
+        <div id="D4">
+            <h2>The pane to the right of the scale has color-coded circular elements.</h2>
+            <p>Hover/Mouse Over on any circle:</p>
+            <p>* The highlighted lines will show its range on the timeline.</p>
+            <p>* On the right, the institution corresponding to the circle will be highlighted</p>
+            <div id="D4Next" class="DButton">NEXT</div>
+            <div id="D4CirclesContainer">
+                <div class="D4Circles" id="D4Circles1"><p>1year</p></div>
+                <div class="D4Circles" id="D4Circles2"><p>2years</p></div>
+                <div class="D4Circles" id="D4Circles3"><p>3years</p></div>
+                <div class="D4Circles" id="D4Circles4"><p>4years</p></div>
+                <div class="D4Circles" id="D4Circles5"><p>5years</p></div>
+                <div id="D4CirclesNote">Note: Depending on the year range, the size of the circle increases.</div>
+            </div>
+        </div>
+        
+        <div id="D5">
+            <h2>Click on any circle in the pane to the right of the scale.</h2>
+            <p>You’ll see the left pane change to show the corresponding</br>completion percentage, institution name, location, and years of study.</p>
+            <div id="D5Next" class="DButton">NEXT</div>
+        </div>
+        
+        <div id="D6">
+            <h2>Click on the “Work” button above the list of institutions.</h2>
+            <p>Until now, we’ve been looking at the timeline for education. Now you’ll see the work timeline.</p>
+            <div id="D6Next" class="DButton">NEXT</div>
+        </div>
+        
+
+        
+        
+<!-- END  Html for Dynamic Guide    -->
+        
+        
 		<div id="educationDetails">
 			
 			<div id="percentageSlider"></div>
@@ -75,13 +146,16 @@
 				<div id="eCountry" class="allShadow"><p></p></div>
 			</div>
 		</div>
-		<div id="yAxisBackground" class="allShadow"></div>
-		<div id="cover1axis"></div>
-		<div id="cover2axis"></div>
+        
+        <div id="scaleSvgContainer">
+		  <div id="yAxisBackground" class="allShadow"></div>
+		  <div id="cover1axis"></div>
+		  <div id="cover2axis"></div>
+        </div>
 	</section> 
        
     <footer id="footer">
-		<h1>&copy;2014  Surya Kiran | Satish Kumar  -  VisoGraphic Resume</h1>
+		<h1>&copy;2014  Surya Kiran Juthuka  -  VisoGraphic Resume</h1>
 	</footer> 
 	
 	</div><!--End of Container-->
@@ -89,3 +163,175 @@
 </html>
 
 <script type="text/javascript" src="javascripts/VisioGraphicResume.js"></script>
+<script>
+
+$( document ).ready( function(){ 
+    
+    setTimeout(function() { 
+        $("#overlay").css({"z-index":1000000, "opacity":1});
+        $("#DIntroContainer").css({"z-index":1000001, "width":"800px","height":"280px"});
+        $("#DIntro").css({"opacity":1});
+    }, 3000);
+    
+    $('#cancel').on('click', function(e) {
+        $("#overlay").css({"z-index":-1, "opacity":0});
+        $("#DIntroContainer").css({"z-index":-1, "width":"0","height":"0"});
+        $("#DIntro").css({"display":"none","opacity":0});
+    });
+    
+    $('#accept').on('click', function(e) {
+        $("#mainGraph").css({"opacity":"0"});
+        $("#DIntroContainer").css({ "width":"0","height":"0"});
+        $("#DIntro").css({"display":"none","opacity":0});
+        
+        setTimeout(function() { 
+            $("#mainGraph").css({
+                "box-shadow": "0px 6px 16px 0px rgba(0, 0, 0, .5)",
+                "z-index": "10000000",
+                "opacity":"1"
+            });
+            $("#D1").css({
+                "z-index": "10000000",
+                "opacity":"1",
+                "box-shadow":"0px 5px 7px 0px rgba(0, 0, 0, .4)"
+            });
+        }, 500);
+    });
+    
+    $('#D1Next').on('click', function(e) {
+        $("#sideBar").css({"opacity":"0"});
+        $("#mainGraph").css({
+            "box-shadow": "0px 0px 0px 0px rgba(0, 0, 0, .5)",
+            "z-index": ""
+        });
+        $("#D1").css({"z-index": "-1", "display":"none" });
+    
+        setTimeout(function() { 
+            $("#sideBar").css({
+                "box-shadow": "0px 6px 16px 0px rgba(0, 0, 0, .5)",
+                "z-index": "10000000",
+                "opacity":"1"
+            });
+            $("#D2").css({
+                "z-index": "10000000",
+                "opacity":"1",
+                "box-shadow":"0px 5px 7px 0px rgba(0, 0, 0, .4)"
+            });
+        }, 500);
+   });      
+        
+        
+    $('#D2Next').on('click', function(e) {
+       $("#sideBar").css({"z-index":"",  "box-shadow": "0px 0px 0px 0px rgba(0, 0, 0, .5)"});
+       $("#D2").css({"z-index": "-100000", "display":"none" });
+
+        $("#mainGraph").css({"opacity":"0"});
+
+        setTimeout(function() { 
+            $("#mainGraph").css({
+                "box-shadow": "0px 6px 16px 0px rgba(0, 0, 0, .5)",
+                "z-index": "10000000",
+                "opacity":"1"
+            });
+            $("#D3").css({
+                "z-index": "10000000",
+                "opacity":"1",
+                "box-shadow":"0px 5px 7px 0px rgba(0, 0, 0, .4)"
+            });
+        }, 500);
+    }); 
+        
+    $('#D3Next').on('click', function(e) {
+        $("#mainGraph").css({
+            "box-shadow": "0px 0px 0px 0px rgba(0, 0, 0, .5)",
+            "z-index": ""
+        });
+        $("#sideBar").css({"opacity":"0"});
+        $("#scaleSvgContainer").css({"opacity":"0"});
+        $("#D3").css({"z-index": "-1", "display":"none" });
+        
+        setTimeout(function() { 
+            $("#scaleSvgContainer").css({
+                "box-shadow": "0px 6px 16px 0px rgba(0, 0, 0, .5)",
+                "z-index": "10000000",
+                "opacity":"1",
+                "background": "url(images/grey.png)"
+            });
+            $("#sideBar").css({
+                "box-shadow": "0px 6px 16px 0px rgba(0, 0, 0, .5)",
+                "z-index": "10000000",
+                "opacity":"1"
+            });
+            $("#D4").css({
+                "z-index": "10000000",
+                "opacity":"1",
+                "box-shadow":"0px 5px 7px 0px rgba(0, 0, 0, .4)"
+            });
+        }, 500);
+        
+    });
+    
+    $('#D4Next').on('click', function(e) {
+        $("#scaleSvgContainer").css({
+            "box-shadow": "0px 0px 0px 0px rgba(0, 0, 0, .5)",
+            "z-index": "",
+            "background": "none"
+        });
+        $("#D4").css({"z-index": "-1", "display":"none" });
+        $("#sideBar").css({"opacity":"0","box-shadow":""});
+        $("#mainGraph").css({"opacity":"0","box-shadow":""});
+        
+        setTimeout(function() { 
+            $("#mainGraph").css({
+                "box-shadow": "0px 6px 16px 0px rgba(0, 0, 0, .5)",
+                "z-index": "10000000",
+                "opacity":"1"
+            });
+            $("#sideBar").css({
+                "box-shadow": "0px 6px 16px 0px rgba(0, 0, 0, .5)",
+                "z-index": "10000000",
+                "opacity":"1"
+            });
+            $("#D5").css({
+                "z-index": "10000000",
+                "opacity":"1",
+                "box-shadow":"0px 5px 7px 0px rgba(0, 0, 0, .4)"
+            });
+        }, 500);
+        
+    });
+    
+    $('#D5Next').on('click', function(e) {
+        $("#D5").css({"z-index": "-1", "display":"none" });
+        
+            $("#D6").css({
+                "z-index": "10000000",
+                "opacity":"1",
+                "box-shadow":"0px 5px 7px 0px rgba(0, 0, 0, .4)"
+            });
+    });
+    
+    $('#D6Next').on('click', function(e) {
+        $("#D6").css({"z-index": "-1", "display":"none" });
+        $("#sideBar").css({"z-index":"","box-shadow":""});
+        $("#mainGraph").css({"z-index":"","box-shadow":""});
+        $("#D7Container").css({"z-index": "10000000"});
+        $("#D7").css({
+            "opacity":1,
+            "box-shadow":"0px 5px 7px 0px rgba(0, 0, 0, .4)"
+        });
+    });
+    
+    $('#D7Finish').on('click', function(e) {
+        $("#overlay").css({"z-index":-1, "opacity":0});
+        $("#D7Container").css({ "width":"0","height":"0"});
+        $("#D7").css({"display":"none","opacity":0});
+    });
+
+        
+        
+
+
+});
+</script>
+

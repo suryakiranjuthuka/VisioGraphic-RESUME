@@ -1,3 +1,6 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
 /**
  * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
  * http://cssreset.com
@@ -59,6 +62,11 @@ table {
 /*	Layout Styles	*/
 html, body{
 	height: 100%;
+    background-color: white;
+}
+
+body{
+    position: relative;
 }
 
 #container{
@@ -136,6 +144,10 @@ html, body{
 	margin-right: 20px;
 	position: absolute;
 	right: 0;
+    background-color: white;
+    padding: 20px 30px;
+    padding-left: 30px;
+    transition: opacity 0.3s ease, box-shadow .3s ease-out 0.3s;
 }
 
 #buttons{	/* Inner Container of #sideBar */
@@ -155,30 +167,35 @@ html, body{
 	color: white;
 	padding: 8px 16px;
 	text-decoration: none;
-	-webkit-transition: background 0.3s ease;
-	-moz-transition: background 0.3s ease;
-	-ms-transition: background 0.3s ease;
-	-o-transition: background 0.3s ease;
-	transition: background 0.3s ease;
-}
-
-.buttonEducation {
-	background: rgba(71, 186, 255, 0.8);
-	font-size: 14px;
-}
-
-.buttonEducation:hover {
-	background: rgba(71, 186, 255, 1);
+    border-radius: 3px;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, .4);
+    transition: all .2s;
+    background-color: #3F4953;
+    border: 2px solid #555;
 }
 
 .buttonWork {
-	background: rgba(241, 118, 122, 0.8);
+	background: #47BAFF;
+	font-size: 14px;
+    border: 2px solid #47BAFF;
+}
+
+.buttonWork:hover {
+	background: #36b4ff;
+    cursor: pointer;
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, .4);
+}
+
+.buttonEducation {
+	background: #F1767A;
 	font-size: 14px;
 	margin-left: 15px;
 }
 
-.buttonWork:hover {
-	background: rgba(241, 118, 122, 1);
+.buttonEducation:hover {
+	background: #ef676b;
+    cursor: pointer;
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, .4);
 }
 
 #circleDetailsModal{ /* Inner Container of #sideBar */
@@ -189,7 +206,8 @@ html, body{
 }
 
 .circleParaGroup{
-	height: 41px;
+	height: 38.5px;
+    transition: all .17s;
 }
 
 .circleDetails { /* Small Circles */
@@ -219,11 +237,19 @@ html, body{
 	background: white;
 	position: relative;
 	background: url(../images/grey.png);
-	border-radius: 1%;
+/*	border-radius: 1%;*/
 	height: 410px;
 	right: 70px;
 }
 
+#scaleSvgContainer{
+    height: 410px;
+    width:  580px;
+    position: absolute;
+	right: 0px;
+	top: 0px;
+    transition: opacity 0.3s ease, box-shadow .3s ease-out 0.3s;
+}
 
 /*My styles*/
 
@@ -740,4 +766,441 @@ box-shadow: 0 0 5px grey;
 	-webkit-box-shadow: 0 8px 6px -6px black;
 	   -moz-box-shadow: 0 8px 6px -6px black;
 	        box-shadow: 0 8px 6px -6px black;
+}
+
+
+
+
+/*---------------------------- Dynamic Guide Styles -----------------------------*/
+#overlay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(247,235,207,.96);\
+    opacity: 0;
+    transition: all .5s;
+    z-index: -1;
+}
+
+#DIntroContainer{
+    width:0px;
+    height: 0px;
+    position: absolute;
+    top: 30%;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: white;
+    z-index: -1;
+    transition: all .5s;
+    box-shadow: 0px 6px 16px 0px rgba(0, 0, 0, .5);
+    text-align: center;
+}
+
+#DIntro{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    opacity: 0;
+    transition: opacity .3s ease-out 0.5s
+}
+
+#DIntro h1{
+    padding: 50px 50px 20px;
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Lato', 'Open Sans', sans-serif;
+}
+
+#DIntro p{
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.DButton{
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #EA5460;
+    color:white;
+    border-radius: 3px;
+    font-size: 19px;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    margin: 0px 20px 0px 0;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, .4);
+    transition: all .2s;
+    font-weight: 500;
+}
+
+.DButton:hover{
+    background-color: #e84552;
+    cursor: pointer;
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, .4);
+}
+
+/*  transition: <property> || <duration> || <timing-function> || <delay> [, ...];*/
+
+
+/*--------------------------------- D1 ------------------------------------*/
+#mainGraph{
+    opacity: 1;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, .5);
+    transition: opacity 0.3s ease, box-shadow .3s ease-out 0.3s;
+/*  transition: all .2s ease;*/
+}
+
+#D1{
+    position: absolute;
+    top: -150px;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: #3f4953;
+    border-radius:5px;
+    border-left: 5px solid #EA5460;
+    padding: 18px 20px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease, box-shadow .3s ease-out 0.3s;
+    transition: opacity .3s ease-out 0.5s;
+}
+
+#D1 h2{
+    display:inline-block;
+    color: #d4d9df;
+    font-size: 22px;
+    font-family: 'Lato','Open Sans', sans-serif;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+
+/*--------------------------------- D2 ------------------------------------*/
+#D2{
+    position: absolute;
+    width: 500px;
+    top: 80px;
+    right:-150px;
+    background-color: #3f4953;
+    border-radius:5px;
+    border-left: 5px solid #EA5460;
+    padding: 40px 60px;
+    line-height: 1.4;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease, box-shadow .3s ease-out 0.3s;
+  transition: opacity .3s ease-out 0.5s;
+}
+
+#D2 h2{
+    display:inline-block;
+    color: #d4d9df;
+    font-size: 25px;
+    font-family: 'Lato','Open Sans', sans-serif;
+}
+
+#D2 p{
+   font-size: 20px;
+    color: #8795a4;
+    text-shadow: 1px 2px 1px rgba(0,0,0,.3);
+    margin: 5px 0 15px;
+}
+
+
+
+/*--------------------------------- D3 ------------------------------------*/
+#D3{
+    position: absolute;
+    top: -160px;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: #3f4953;
+    border-radius:5px;
+    border-left: 5px solid #EA5460;
+    padding: 40px 60px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease, box-shadow .3s ease-out 0.3s;
+    transition: opacity .3s ease-out 0.5s;
+}
+
+#D3 h2{
+    display:inline-block;
+    color: #d4d9df;
+    font-size: 25px;
+    font-family: 'Lato','Open Sans', sans-serif;
+}
+
+#D3 p{
+    display:inline-block;
+   font-size: 20px;
+    color: #8795a4;
+    text-shadow: 1px 2px 1px rgba(0,0,0,.3);
+    margin: 15px 0 0px;
+}
+
+#D3Next{
+    margin-left: 45px;
+    position: relative;
+    top: -10px;
+}
+
+
+/*--------------------------------- D4 ------------------------------------*/
+#D4{
+    position: absolute;
+    top: -25px;
+    left:-100px;
+    width: 472px;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: #3f4953;
+    border-radius:5px;
+    border-left: 5px solid #EA5460;
+    padding: 40px 60px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease, box-shadow .3s ease-out 0.3s;
+    transition: opacity .3s ease-out 0.5s;
+}
+
+#D4 h2{
+    display:inline-block;
+    color: #d4d9df;
+    font-size: 25px;
+    font-family: 'Lato','Open Sans', sans-serif;
+    margin-bottom: 15px;
+}
+
+#D4 p{
+    display:inline-block;  
+    font-size: 20px;
+    margin: 0px 0 0px;
+    line-height: 1.1;
+    color: #8795a4;
+    text-shadow: 1px 2px 1px rgba(0,0,0,.3);
+}
+
+#D4Next{
+    margin: 20px 0 25px;
+    margin-left: 0px;
+    position: relative;
+}
+
+#D4CirclesContainer{
+    height: 117px;
+    background-color: white;
+    -moz-box-shadow:    inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow:         inset 0 0 10px #000000;
+    font-size: 0px;
+    text-align: center;
+    position: relative;
+    padding-top: 15px;
+    border: 5px solid #f7f7f7;
+}
+
+.D4Circles{
+    display: inline-block;
+    -moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+    vertical-align: bottom;
+    box-shadow:         1px 1px 1px 1px rgba(0,0,0,.3);
+    
+}
+
+#D4CirclesContainer .D4Circles p{
+    position: relative;
+    top: -30px;
+    left: 0px;
+    color: grey;
+    text-shadow: 0px 0px 0px rgba(0,0,0,.3);
+}
+
+#D4Circles1{
+    width: 20px;
+    height: 20px;
+    margin-left: 40px;
+    margin-right:50px;
+    margin-top:30px;
+    background-color: #3498DB;
+}
+
+#D4Circles2{
+    width: 25px;
+    height: 25px;
+    margin-right:50px;
+    margin-top:30px;
+    background-color: #E25942;
+}
+
+#D4Circles3{
+    width: 30px;
+    height: 30px;
+    margin-right:50px;
+    margin-top:30px;
+    background-color: #13A89E;
+}
+
+#D4Circles4{
+    width: 35px;
+    height: 35px;
+    margin-right:50px;
+    margin-top:30px;
+    background-color: #3F4953;
+}
+
+#D4Circles5{
+    width: 40px;
+    height: 40px;
+    margin-right:50px;
+    margin-top:30px;
+    background-color: #F6CB51;
+}
+
+#D4CirclesNote{
+    font-size: 16px;
+    margin-top: 15px;
+    color: grey;
+}
+
+
+/*--------------------------------- D5 ------------------------------------*/
+#D5{
+    position: absolute;
+    top: -190px;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: #3f4953;
+    border-radius:5px;
+    border-left: 5px solid #EA5460;
+    padding: 30px 60px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease, box-shadow .3s ease-out 0.3s;
+    transition: opacity .3s ease-out 0.5s;
+}
+
+#D5 h2{
+    display:inline-block;
+    color: #d4d9df;
+    font-size: 25px;
+    font-family: 'Lato','Open Sans', sans-serif;
+}
+
+#D5 p{
+    display:inline-block;
+   font-size: 20px;
+    color: #8795a4;
+    text-shadow: 1px 2px 1px rgba(0,0,0,.3);
+    margin: 15px 0 0px;
+}
+
+#D5Next{
+    margin-left: 40px;
+    position: relative;
+    top: -10px;
+}
+
+
+/*--------------------------------- D6 ------------------------------------*/
+#D6{
+    position: absolute;
+    top: -190px;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: #3f4953;
+    border-radius:5px;
+    border-left: 5px solid #EA5460;
+    padding: 40px 60px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease, box-shadow .3s ease-out 0.3s;
+    transition: opacity .3s ease-out 0.5s;
+}
+
+#D6 h2{
+    display:inline-block;
+    color: #d4d9df;
+    font-size: 25px;
+    font-family: 'Lato','Open Sans', sans-serif;
+}
+
+#D6 p{
+    display:inline-block;
+   font-size: 20px;
+    color: #8795a4;
+    text-shadow: 1px 2px 1px rgba(0,0,0,.3);
+    margin: 15px 0 0px;
+}
+
+#D6Next{
+    margin-left: 35px;
+    position: relative;
+    top: -10px;
+}
+
+
+/*--------------------------------- D7 ------------------------------------*/
+#D7Container{
+    width: 600px;
+    height: 150px;
+    position: absolute;
+    top: 20%;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+/*  background-color: white;*/
+    z-index: -1;
+    transition: all .5s;
+    text-align: center;
+}
+
+#D7{
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    background-color: #3f4953;
+    border-radius:5px;
+    border-top: 5px solid #EA5460;
+    padding: 35px 40px 25px;
+    transition: opacity 0.3s ease, box-shadow .3s ease-out 0.3s;
+    transition: opacity .3s ease-out 0.5s;
+}
+
+
+#D7 h2{
+    display:block;
+    color: #d4d9df;
+    font-size: 25px;
+    font-family: 'Lato','Open Sans', sans-serif;
+}
+
+#D7 p{
+    display:block;
+   font-size: 20px;
+    color: #8795a4;
+    text-shadow: 1px 2px 1px rgba(0,0,0,.3);
+    margin: 15px 0 40px;
+}
+
+#D7Next{
+    position: relative;
 }

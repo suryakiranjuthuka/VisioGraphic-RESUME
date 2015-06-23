@@ -71,7 +71,7 @@
 						.ticks(dataset.length*1.2);
 
 		var svg = d3.select("body")
-					.select("#mainGraph")
+					.select("#scaleSvgContainer")
 					.append("svg")
 					.attr("width",w)
 					.attr("height",h)
@@ -138,6 +138,7 @@
                             .enter()
                             .append("circle")
 							.on("mouseover", function(d){
+                                
 									window.x = d.id;
 									window.a = d.years;
 									window.b = d.midpoint;
@@ -157,9 +158,10 @@
 								.attr("stroke","#E53542")
 								.attr("stroke-width",4)
 								.attr("cursor","pointer");
-								
+                                
 								circle_details.style("background-color",function(d){
 									if(d.id==window.x){
+                                        d3.select(this.parentNode).style("margin-left","-23px")
 										return "#E53542";
 									}
 										if(d.years==1){
@@ -168,28 +170,18 @@
 										return c3;} else if(d.years==4){
 										return c4;} else{ return c5;  }
 								});
-//								.style("border-radius",function(d){
-//									if(d.id==window.x){
-//										return 50+"%";
-//									}
-//								});
-//								.style("width",function(d){
-//									if(d.id==window.x){
-//										return 23 + "px";
-//									}
-//								})
-//								.style("height",function(d){
-//									if(d.id==window.x){
-//										return 23 + "px";
-//									}
-//								});
-								
+                                
 								circle_details_para
 								.style("color",function(d){
 									if(d.id==window.x){
 										return "#E53542";}
 								});
 								
+                                circle_details_para
+								.style("font-weight",function(d){
+									if(d.id==window.x){
+										return "bold";}
+								});
 								
 								svg.append("line") //Top Line Selector
 								.attr("class","remove")
@@ -235,8 +227,8 @@
 								
 							.on("mouseout", function(){
 								d3.select(this)
-								.transition()
-								.duration(250)
+//								.transition()
+//								.duration(250)
 								.attr("fill",function(d){ 
 								if(d.years==1){	
                                 return c1;} else if(d.years==2){
@@ -246,35 +238,22 @@
                             	})
 								.attr("stroke","grey")
 								.attr("stroke-width",1);
-								
-								circle_details
-								.transition()
-								.duration(250)
-								.style("background-color",function(d){
+                                
+								circle_para_group.style("margin-left","0px");
+                                
+								circle_details.style("background-color",function(d){
 									if(d.years==1){
 										return c1;} else if(d.years==2){
 										return c2;} else if(d.years==3){
 										return c3;} else if(d.years==4){
 										return c4;} else{ return c5;  }
 								});
-//								.style("border-radius","none");
-//								.style("width",function(d){ return 20 + "px";})
-//								.style("height",function(d){ return 20 + "px";});
+                                
+								circle_details_para.style("color",function(d) { return "grey"; });
+                                
+                                circle_details_para.style("font-weight","normal");
 								
-								circle_details_para
-								.transition()
-								.duration(250)
-								.style("color",function(d) { return "grey"; });
-								
-								svg.selectAll("line.remove") //Top Line Selector
-//								.transition()
-//								.duration(250)
-								.attr("x1",0)
-								.attr("y1",0)
-								.attr("x2",0)
-								.attr("y2",0)
-								.attr("stroke",none)
-								.attr("stroke-width",0);
+								svg.selectAll("line.remove").remove()
 							})
 							.on("click",function(d){
 								
@@ -564,20 +543,57 @@
             //On click, update with new data			
 			d3.select("div#work")
 				.on("click", function() {
-                    
-					
+                
+                    //Button Active Styles
+					d3.select(".buttonEducation")
+                    .style("border","2px solid #F1767A")
+                    d3.select(".buttonWork")
+                    .style("border","2px solid #555")
+                
+                    //Reset All Of The Data on Click of the Button
+                    d3.select("#hexagonContainer")
+                    .transition()
+                    .duration(500)
+                    .style("right","-445px")
+
+                    d3.select("#educationNameRect")
+                    .select("p")
+                    .text(function(){ return ""; })
+
+                    d3.select("#educationFirstYear")
+                    .select("p")
+                    .text(function(){ return ""; })
+
+                    d3.select("#educationSecondYear")
+                    .select("p")
+                    .text(function(){ return ""; })
+
+                    d3.select("#eCountry")
+                    .select("p")
+                    .text(function(){ return ""; })
+
+                    d3.select("#eState")
+                    .select("p")
+                    .text(function(){ return ""; })
+
+                    d3.select("#eCity")
+                    .select("p")
+                    .text(function(){ return ""; })		
+
+                
+                
 //			var dataset = [ [5,1993.5,1991,1996], [2,1993,1992,1994] , [4,2001,1999,2003], [3,1996.5,1995,1998], [1,1994.5,1994,1995], [1,2001.5,2001,2002], [2,1998,1997,1999], [3,1994.5,1993,1996]
 //                          ];
 					
 			var dataset = [
-			{ "id": 1, "years": 5, "midpoint": 1993.5, "start" : 1991, "end" : 1996, "name":"WIPRO", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"40", "etype":"school" },
+			{ "id": 1, "years": 5, "midpoint": 1993.5, "start" : 1991, "end" : 1996, "name":"WIPRO", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"50", "etype":"school" },
 			{ "id": 2, "years": 2, "midpoint": 1993, "start" : 1992, "end" : 1994, "name":"INFOSYS", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"60", "etype":"school" },
 			{ "id": 3, "years": 4, "midpoint": 2001, "start" : 1999, "end" : 2003, "name":"TATA Groups", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"50", "etype":"school" },
-			{ "id": 4, "years": 3, "midpoint": 1997.5, "start" : 1996, "end" : 1999, "name":"RELIANCE", "country":"INDIA", "state":"Tamil Nadu", "city":"Chennai", "percentage":"60", "etype":"school" },
-			{ "id": 5, "years": 1, "midpoint": 1994.5, "start" : 1994, "end" : 1995, "name":"PRO SOFT", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"80", "etype":"college" },
-			{ "id": 6, "years": 1, "midpoint": 2001.5, "start" : 2001, "end" : 2002, "name":"AVID Technologies", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"70", "etype":"college" },
-			{ "id": 7, "years": 2, "midpoint": 1998, "start" : 1997, "end" : 1999, "name":"GOOGLE", "country":"USA", "state":"Massachusetts", "city":"Boston", "percentage":"90", "etype":"university" },
-			{ "id": 8, "years": 3, "midpoint": 1994.5, "start" : 1993, "end" : 1996, "name":"MICROSOFT", "country":"USA", "state":"Massachusetts", "city":"Boston", "percentage":"90", "etype":"university" }
+			{ "id": 4, "years": 3, "midpoint": 1997.5, "start" : 1996, "end" : 1999, "name":"RELIANCE", "country":"INDIA", "state":"Tamil Nadu", "city":"Chennai", "percentage":"40", "etype":"school" },
+			{ "id": 5, "years": 1, "midpoint": 1994.5, "start" : 1994, "end" : 1995, "name":"PRO SOFT", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"50", "etype":"college" },
+			{ "id": 6, "years": 1, "midpoint": 2001.5, "start" : 2001, "end" : 2002, "name":"AVID Technologies", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"60", "etype":"college" },
+			{ "id": 7, "years": 2, "midpoint": 1998, "start" : 1997, "end" : 1999, "name":"GOOGLE", "country":"USA", "state":"Massachusetts", "city":"Boston", "percentage":"70", "etype":"university" },
+			{ "id": 8, "years": 3, "midpoint": 1994.5, "start" : 1993, "end" : 1996, "name":"MICROSOFT", "country":"USA", "state":"Massachusetts", "city":"Boston", "percentage":"80", "etype":"university" }
 			
 		];
 					
@@ -847,7 +863,43 @@
             //On click, update with new data			
 			d3.select("div#education")
 				.on("click", function() {
-          
+                
+                    //Button Active Styles
+					d3.select(".buttonEducation")
+                    .style("border","2px solid #555")
+                    d3.select(".buttonWork")
+                    .style("border","2px solid #47BAFF")
+                
+                    //Reset All Of The Data on Click of the Button
+                    d3.select("#hexagonContainer")
+                    .transition()
+                    .duration(500)
+                    .style("right","-445px")
+
+                    d3.select("#educationNameRect")
+                    .select("p")
+                    .text(function(){ return ""; })
+
+                    d3.select("#educationFirstYear")
+                    .select("p")
+                    .text(function(){ return ""; })
+
+                    d3.select("#educationSecondYear")
+                    .select("p")
+                    .text(function(){ return ""; })
+
+                    d3.select("#eCountry")
+                    .select("p")
+                    .text(function(){ return ""; })
+
+                    d3.select("#eState")
+                    .select("p")
+                    .text(function(){ return ""; })
+
+                    d3.select("#eCity")
+                    .select("p")
+                    .text(function(){ return ""; })
+                
 					
 			var dataset = [
 			{ "id": 1, "years": 3, "midpoint": 2012.5, "start" : 2011, "end" : 2014, "name":"P.Obul Reddy Public School", "country":"INDIA", "state":"Andhra Pradesh", "city":"Hyderabad", "percentage":"40", "etype":"school" },
